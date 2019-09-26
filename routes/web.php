@@ -13,9 +13,8 @@
 
 
 
-// Auth::routes();
 
 
 Route::get('/{any}', function(){
-    return view('journey');
+    return view('login');
 })->where('any', '.*');

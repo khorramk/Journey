@@ -1,5 +1,7 @@
 <template>
-    <h1> this is login</h1>
+    <form action="/login">
+        <input type="text">
+    </form>
 </template>
 
 <script>

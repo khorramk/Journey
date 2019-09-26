@@ -69,14 +69,12 @@
                 </div>
             </div>
         </nav>
-        @guest
-            @if (Route::has('register'))
-                
-            @endif
+     
+            
             <main class="py-4">
                     @yield('content')
             </main>
-        @endguest
+      
         
     </div>
 </body>

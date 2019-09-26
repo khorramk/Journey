@@ -8,7 +8,7 @@ require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import register from './components/auth/register';
-import login from './components/auth/login'
+import login from './components/auth/login';
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
@@ -36,6 +36,10 @@ const app = new Vue({
     el: '#app',
     router: new VueRouter({
         routes : [
+            {
+                path: '/login',
+                component: login
+            },
             {
                 path: '/',
                 component: login

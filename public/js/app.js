@@ -1864,6 +1864,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -37157,9 +37159,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v(" this is login")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", { attrs: { action: "/login" } }, [
+      _c("input", { attrs: { type: "text" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -52270,6 +52281,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     routes: [{
+      path: '/login',
+      component: _components_auth_login__WEBPACK_IMPORTED_MODULE_3__["default"]
+    }, {
       path: '/',
       component: _components_auth_login__WEBPACK_IMPORTED_MODULE_3__["default"]
     }, {
