@@ -14,18 +14,23 @@ class LoginController extends Controller
     *
     * @return Response
     */
-    public function authenticate(Request $request)
+    public function Login(Request $request)
     {
-        $credentials = $request->only('user', 'password');
-
-        if (Auth::attempt($credentials)) {
+       
+        $password = $request->input('password');
+        $user = $request->input('user');        
+        if (Auth::attempt(['name'=> $user, 'password' => $password ])) {
             // Authentication passed...
-            return redirect()->intended('dashboard');
+            
+            return ['passed' => 'passed'];
         }else{
             
-             Auth::logout();
 
-             return redirect('/login');
+             return back();
         }
+        
+        return back();
+
+    
     }
 }

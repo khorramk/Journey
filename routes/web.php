@@ -15,6 +15,10 @@
 
 
 
+
+
+
 Route::get('/{any}', function(){
-    return view('login');
+    return view('journey');
 })->where('any', '.*');
+

@@ -9,6 +9,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import register from './components/auth/register';
 import login from './components/auth/login';
+import verify from './components/auth/verify'
+import dashboard from './components/dashboard';
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
@@ -32,23 +34,56 @@ Vue.use(VueRouter);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 //injexting routes
+const router = new VueRouter({
+    mode: 'history',
+    routes : [
+        {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: dashboard,
+            meta: {
+                requiresAuth: true
+            },
+
+        },
+        {
+            path:'/login',
+            name: 'login',
+            component: login,
+            meta: {
+                loggedIn: false
+            }
+            
+        },
+        {
+            path:'/register',
+            component: register
+        },
+        {
+            path: '/history',
+            component: history
+        }
+    ]
+})
+
+router.beforeEach((to, from, next)=> {
+    if (to.matched.some(record => record.meta.requiresAuth)){
+
+        if(to.meta.requiresAuth){
+            console.log('test');
+            next()
+        } else {
+            
+        }
+    } else {
+        
+    }
+});
+
 const app = new Vue({
     el: '#app',
-    router: new VueRouter({
-        routes : [
-            {
-                path: '/login',
-                component: login
-            },
-            {
-                path: '/',
-                component: login
-            },
-            {
-                path: '/register',
-                component: register
-            }
-        ]
-    })
+    router: router
     
 });
+
+
