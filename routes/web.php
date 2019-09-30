@@ -27,3 +27,6 @@ Route::get('/' , function(){
     return view('dashboard');
 });
 
+Route::get('/{any}', function(){
+    return view('dashboard');
+})->where('any', '*');
