@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Route::get('/login' , function(){
+//     return view('login');
+// });
+
+// Route::get('/' , function(){
+//     return view('dashboard');
+// });
+
+Auth::routes();
+
+
+Route::get('/' , function(){
+    return view('dashboard');
 });
+
