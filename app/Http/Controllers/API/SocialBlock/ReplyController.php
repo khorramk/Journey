@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\SOCIALBLOCK;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class Posts extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\COUNTRIES;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class Countries extends Controller
+class WishListController extends Controller
 {
     /**
      * Display a listing of the resource.

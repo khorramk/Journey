@@ -1,7 +1,7 @@
 <template>
     <div>
-        <li v-for="(CountryVisited, i) in ListofCountries" :key="i" >
-            <image src="" alt="....avatars"/>
+        <li v-for="(ListOfPost, i) in ListOfPosts" :key="i" v-text="ListOfPost">
+
         </li>
     </div>
 </template>
@@ -10,7 +10,7 @@
     export default {
         data() {
             return {
-                ListofCountries: Array(500).fill(1,500)
+                ListOfPosts: Array(9).fill('test')
             }
         },
     }
