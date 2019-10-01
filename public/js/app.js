@@ -1900,6 +1900,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       ListOfPosts: Array(9).fill('test')
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/post').then(function (resp) {
+      _this.$data.ListOfPost = resp.data;
+    });
   }
 });
 

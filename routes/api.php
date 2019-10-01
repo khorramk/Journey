@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'posts' => 'API\SocialBlock\PostsController',
+    'comments' => 'API\SocialBlock\Comments',
+    'visited' => 'API\Countries\VisitedController',
+    'wishList' => 'API\Countries\WishListController',
+    'avatars' => 'API\SocialBlock\AvatarController',
+    'likes' => 'API\SocialBlock\LikesController',
+    'posts' => 'API\SocialBlock\ReplyController'
+
+]);

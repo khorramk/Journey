@@ -15,6 +15,8 @@ class CreateWishTable extends Migration
     {
         Schema::create('wish', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('country_name');
+            $table->unsignedInteger('users_id');
             $table->timestamps();
         });
     }
