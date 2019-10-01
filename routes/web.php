@@ -23,10 +23,13 @@
 Auth::routes();
 
 
-Route::get('/' , function(){
-    return view('dashboard');
-});
-
+// Route::get('/' , function(){
+//     return view('dashboard');
+// });
+// Route::get('/login' , function ()
+// {
+//     return view('dashboard');
+// });
 Route::get('/{any}', function(){
     return view('dashboard');
-})->where('any', '*');
+})->where('any', '.*');
