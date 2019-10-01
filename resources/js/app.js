@@ -25,6 +25,9 @@ import VueRouter from 'vue-router';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import Register from './components/auth/Register';
+import History from './components/history/History';
+import Country from './components/Visited/Country';
+import WishList from './components/Visited/WishList';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -36,6 +39,17 @@ const routes = [
     {
         path: '/',
         component: Dashboard
+    }, 
+    {
+        path: '/history',
+        component: History
+    }, {
+        path: '/visited',
+        component: Country
+    },
+    {
+        path: '/wishList',
+        component: WishList
     }
     
 ];
@@ -47,7 +61,6 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    
     components: {
         Login,
        Register
