@@ -15,6 +15,9 @@ class CreateVisitedTable extends Migration
     {
         Schema::create('visited', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('country_name');
+            $table->binary('images');
+            $table->unsignedInteger('users_id');
             $table->timestamps();
         });
     }
