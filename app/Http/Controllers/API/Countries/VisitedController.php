@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class Comments extends Controller
+class VisitedController extends Controller
 {
     /**
      * Display a listing of the resource.

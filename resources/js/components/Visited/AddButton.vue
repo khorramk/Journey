@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="search" name="search" id="">
+        <button>Add wish</button>
     </div>
 </template>
 
