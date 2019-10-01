@@ -19,33 +19,38 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-import VueRouter from 'vue';
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+import VueRouter from 'vue-router';
+import Login from './components/auth/Login';
+import Dashboard from './components/dashboard/Dashboard';
+import Register from './components/auth/Register';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.use(VueRouter);
+
 const routes = [
     {
         path: '/',
         component: Dashboard
-    },
-    {
-        path: '/login',
-        component: Login
-    },
-    {
-        path: '/registser',
-        component: Register
     }
+    
 ];
 const router = new VueRouter({
+    mode: 'history',
     routes
 });
+
 const app = new Vue({
     el: '#app',
-    mode: history,
-    router
+    router,
+    
+    components: {
+        Login,
+       Register
+    }
+    
 });
