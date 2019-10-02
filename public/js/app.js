@@ -1904,8 +1904,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/post').then(function (resp) {
-      _this.$data.ListOfPost = resp.data;
+    axios.get('/api/posts').then(function (resp) {
+      _this.$data.ListOfPosts = resp.data;
     });
   }
 });
@@ -1940,6 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Nav */ "./resources/js/components/Nav.vue");
 //
 //
 //
@@ -1948,11 +1949,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       ListofCountries: Array(500).fill(1, 500)
     };
+  },
+  components: {
+    Nav: _Nav__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2066,7 +2072,7 @@ __webpack_require__.r(__webpack_exports__);
         email: this.$data.email,
         password: this.$data.password
       }).then(function () {
-        return window.location.href = '/';
+        return window.location.href = '/dashboard';
       })["catch"](function () {
         _this.$data.error = true;
         _this.$data.fallback = 'invalid auth';
@@ -2292,6 +2298,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2300,8 +2310,19 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Avatar: _dashboard_Avatar__WEBPACK_IMPORTED_MODULE_0__["default"],
     Search: _search_Search__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Posts: _Posts_Posts__WEBPACK_IMPORTED_MODULE_2__["default"],
     Nav: _Nav__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      historyOfPosts: Array(9).fill('test')
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/posts/{}").then(function (resp) {
+      return _this.$data.historyOfPosts = resp.data;
+    });
   }
 });
 
@@ -37598,30 +37619,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "nav" }, [
-        _c("nav", [
-          _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Dashboard")])]),
+  return _c("div", [
+    _c("div", { staticClass: "nav" }, [
+      _c(
+        "nav",
+        [
+          _c("router-link", { attrs: { to: "/" } }, [_vm._v("Dashboard")]),
           _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("History")])]),
+          _c("router-link", { attrs: { to: "/history" } }, [_vm._v("History")]),
           _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("visited")])]),
+          _c("router-link", { attrs: { to: "/visited" } }, [_vm._v("Visited")]),
           _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("wishList")])]),
-          _vm._v(" "),
-          _c("li", [_c("a", { attrs: { href: "" } })])
-        ])
-      ])
+          _c("router-link", { attrs: { to: "/wishList" } }, [
+            _vm._v("WishList")
+          ])
+        ],
+        1
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37706,12 +37724,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.ListofCountries, function(CountryVisited, i) {
-      return _c("li", { key: i }, [
-        _c("image", { attrs: { src: "", alt: "....avatars" } })
-      ])
-    }),
-    0
+    [
+      _c("Nav"),
+      _vm._v(" "),
+      _vm._l(_vm.ListofCountries, function(CountryVisited, i) {
+        return _c("li", { key: i }, [
+          _c("image", { attrs: { src: "", alt: "....avatars" } })
+        ])
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -38297,7 +38319,22 @@ var render = function() {
           _vm._v(" "),
           _c("Search"),
           _vm._v(" "),
-          _c("div", { staticClass: "posts-container" }, [_c("Posts")], 1)
+          _c(
+            "div",
+            { staticClass: "posts-container" },
+            _vm._l(_vm.historyOfPosts, function(historyOfPost, i) {
+              return _c("li", { key: i }, [
+                _c("div", { staticClass: "card" }, [
+                  _vm._v(
+                    "\n                 " +
+                      _vm._s(historyOfPost) +
+                      "\n             "
+                  )
+                ])
+              ])
+            }),
+            0
+          )
         ],
         1
       )
@@ -53426,7 +53463,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var routes = [{
-  path: '/',
+  path: '/dashboard',
   component: _components_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/history',

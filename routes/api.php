@@ -18,12 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResources([
-    'posts' => 'API\SocialBlock\PostsController',
-    'comments' => 'API\SocialBlock\Comments',
-    'visited' => 'API\Countries\VisitedController',
-    'wishList' => 'API\Countries\WishListController',
-    'avatars' => 'API\SocialBlock\AvatarController',
-    'likes' => 'API\SocialBlock\LikesController',
-    'posts' => 'API\SocialBlock\ReplyController'
+    'posts' => 'api\SocialBlock\PostsController',
+    'comments' => 'api\SocialBlock\CommentsController',
+    'visited' => 'api\Countries\VisitedController',
+    'wishList' => 'api\Countries\WishListController',
+    'avatars' => 'api\SocialBlock\AvatarController',
+    'likes' => 'api\SocialBlock\LikesController',
+    'reply' => 'API\SocialBlock\ReplyController'
 
 ]);

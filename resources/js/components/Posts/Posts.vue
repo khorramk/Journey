@@ -14,8 +14,8 @@
             }
         },
         mounted () {
-            axios.get('/api/post').then((resp) => {
-                this.$data.ListOfPost = resp.data;
+            axios.get('/api/posts').then((resp) => {
+                this.$data.ListOfPosts = resp.data;
             });
         },
     }
