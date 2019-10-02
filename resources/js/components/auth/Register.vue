@@ -62,6 +62,8 @@
                 </button>
             </div>
         </div>
+
+        <input type="text" name="" id="">
     </form>
     <a href="/">log in</a>
 </div>

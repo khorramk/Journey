@@ -28,6 +28,9 @@ import AddButton from '../Visited/AddButton';
             Nav,
             AddButton
         },
+        mounted () {
+            //axios.get('').then((resp)=> console.log(resp.data));
+        },
     }
 </script>
 

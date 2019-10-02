@@ -14,9 +14,9 @@
             }
         },
         mounted () {
-            axios.get('/api/posts').then((resp) => {
-                this.$data.ListOfPosts = resp.data;
-            });
+            // axios.get('/api/posts').then((resp) => {
+            //     this.$data.ListOfPosts = resp.data;
+            // });
         },
     }
 </script>
