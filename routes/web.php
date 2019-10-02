@@ -22,6 +22,10 @@
 
 Auth::routes();
 
+// Route::prefix('api')->middleware('auth')->group(function () {
+//     Route::get('posts', 'api\SocialBlock\PostsController@index');
+// });
+
 
 // Route::get('/' , function(){
 //     return view('dashboard');
@@ -32,4 +36,4 @@ Auth::routes();
 // });
 Route::get('/{any}', function(){
     return view('dashboard');
-})->where('any', '.*');
+})->where('any', '.*')->name('dashboard');

@@ -4,12 +4,9 @@ namespace App\Http\Controllers\API\SOCIALBLOCK;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class PostsController extends Controller
+class UserController extends Controller
 {
-    use AuthenticatesUsers;
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        dd($request->user(), Auth::user(), auth('api')->user(), auth()->user(), \Auth::check());
-        return \App\User::find(Auth::id())->posts->posts;
+        //
+        return \App\User::all();
     }
 
     /**
@@ -41,7 +38,7 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        return \App\User::find($id)->posts;
+        return User::find($id);
     }
 
     /**

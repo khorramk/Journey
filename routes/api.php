@@ -13,17 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('userChecker')->get('/posts', function(Request $request){
+    dd($request->user());
+});
+// Route::apiResources([
 
-Route::apiResources([
-    'posts' => 'api\SocialBlock\PostsController',
-    'comments' => 'api\SocialBlock\CommentsController',
-    'visited' => 'api\Countries\VisitedController',
-    'wishList' => 'api\Countries\WishListController',
-    'avatars' => 'api\SocialBlock\AvatarController',
-    'likes' => 'api\SocialBlock\LikesController',
-    'reply' => 'API\SocialBlock\ReplyController'
-
-]);
+//     'comments' => 'api\SocialBlock\CommentsController',
+//     'visited' => 'api\Countries\VisitedController',
+//     'wishList' => 'api\Countries\WishListController',
+//     'avatars' => 'api\SocialBlock\AvatarController',
+//     'likes' => 'api\SocialBlock\LikesController',
+//     'reply' => 'API\SocialBlock\ReplyController'
+// ]);

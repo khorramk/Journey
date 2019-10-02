@@ -32,7 +32,7 @@ import Nav from '../Nav';
             }
         },
         mounted () {
-            axios.get(`/api/posts/{}`).then((resp)=> this.$data.historyOfPosts = resp.data);
+            axios.get(`/api/posts`).then((resp)=> this.$data.historyOfPosts = resp.data);
         },
     }
 </script>

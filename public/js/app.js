@@ -1901,12 +1901,9 @@ __webpack_require__.r(__webpack_exports__);
       ListOfPosts: Array(9).fill('test')
     };
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/posts').then(function (resp) {
-      _this.$data.ListOfPosts = resp.data;
-    });
+  mounted: function mounted() {// axios.get('/api/posts').then((resp) => {
+    //     this.$data.ListOfPosts = resp.data;
+    // });
   }
 });
 
@@ -2161,6 +2158,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2267,6 +2266,8 @@ __webpack_require__.r(__webpack_exports__);
     Avatar: _dashboard_Avatar__WEBPACK_IMPORTED_MODULE_1__["default"],
     Nav: _Nav__WEBPACK_IMPORTED_MODULE_2__["default"],
     AddButton: _Visited_AddButton__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  mounted: function mounted() {//axios.get('').then((resp)=> console.log(resp.data));
   }
 });
 
@@ -2320,7 +2321,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/posts/{}").then(function (resp) {
+    axios.get("/api/posts").then(function (resp) {
       return _this.$data.historyOfPosts = resp.data;
     });
   }
@@ -37624,7 +37625,9 @@ var render = function() {
       _c(
         "nav",
         [
-          _c("router-link", { attrs: { to: "/" } }, [_vm._v("Dashboard")]),
+          _c("router-link", { attrs: { to: "/dashboard" } }, [
+            _vm._v("Dashboard")
+          ]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: "/history" } }, [_vm._v("History")]),
           _vm._v(" "),
@@ -38184,7 +38187,9 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _vm._m(0),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "text", name: "", id: "" } })
       ]
     ),
     _vm._v(" "),
