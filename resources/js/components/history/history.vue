@@ -5,7 +5,11 @@
           <Avatar/>
           <Search/>
           <div class="posts-container">
-              <Posts/>
+             <li v-for="(historyOfPost, i) in historyOfPosts" :key="i">
+                 <div class="card">
+                     {{historyOfPost}}
+                 </div>
+             </li>
           </div>
       </main>
     </div>
@@ -20,9 +24,16 @@ import Nav from '../Nav';
         components: {
             Avatar,
             Search,
-            Posts,
             Nav
-        }
+        },
+        data() {
+            return {
+                historyOfPosts: Array(9).fill('test')
+            }
+        },
+        mounted () {
+            axios.get(`/api/posts/{}`).then((resp)=> this.$data.historyOfPosts = resp.data);
+        },
     }
 </script>
 

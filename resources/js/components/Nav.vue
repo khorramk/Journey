@@ -2,11 +2,11 @@
     <div>
         <div class="nav">
             <nav>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">History</a></li>
-                <li><a href="">visited</a></li>
-                <li><a href="">wishList</a></li>
-                <li><a href=""></a></li>
+               <router-link to="/">Dashboard</router-link>
+               <router-link to="/history">History</router-link>
+               <router-link to="/visited">Visited</router-link>
+               <router-link to="/wishList">WishList</router-link>
+               
             </nav>
         </div>
     </div>

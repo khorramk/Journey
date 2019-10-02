@@ -37,8 +37,9 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/',
-        component: Dashboard
+        path: '/dashboard',
+        component: Dashboard,
+        
     }, 
     {
         path: '/history',

@@ -52,7 +52,7 @@
                     password: this.$data.password,
 
                 })
-                    .then(()=> window.location.href = '/').catch(()=> {
+                    .then(()=> window.location.href = '/dashboard').catch(()=> {
                         this.$data.error = true;
                         this.$data.fallback = 'invalid auth';
                     
