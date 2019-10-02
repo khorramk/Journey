@@ -13,6 +13,11 @@
                 ListOfPosts: Array(9).fill('test')
             }
         },
+        mounted () {
+            axios.get('/api/posts').then((resp) => {
+                this.$data.ListOfPosts = resp.data;
+            });
+        },
     }
 </script>
 

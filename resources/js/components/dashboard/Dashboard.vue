@@ -27,7 +27,7 @@ import AddButton from '../Visited/AddButton';
             Avatar,
             Nav,
             AddButton
-        }
+        },
     }
 </script>
 

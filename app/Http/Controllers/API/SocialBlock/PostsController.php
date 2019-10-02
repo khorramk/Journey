@@ -15,6 +15,7 @@ class PostsController extends Controller
     public function index()
     {
         //
+        return \App\Posts::all();
     }
 
     /**
@@ -37,6 +38,7 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+        return \App\User::find($id)->posts;
     }
 
     /**
