@@ -1,7 +1,9 @@
 <template>
     <div>
-        <li v-for="(ListOfPost, i) in ListOfPosts" :key="i" v-text="ListOfPost">
-
+        <li v-for="(ListOfPost, i) in ListOfPosts" :key="i" v-text="ListOfPost.posts">
+               <div class="cantainer">
+                   
+               </div>
         </li>
     </div>
 </template>
@@ -14,9 +16,9 @@
             }
         },
         mounted () {
-            // axios.get('/api/posts').then((resp) => {
-            //     this.$data.ListOfPosts = resp.data;
-            // });
+            axios.get('/api/posts').then((resp) => {
+                this.$data.ListOfPosts = resp.data;
+            });
         },
     }
 </script>

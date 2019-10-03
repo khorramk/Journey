@@ -31,7 +31,7 @@
         </form>
         <a href="/register">Register</a>
     </div>
-   
+
 
 </template>
 
@@ -52,10 +52,10 @@
                     password: this.$data.password,
 
                 })
-                    .then(()=> window.location.href = '/dashboard').catch(()=> {
+                    .then(()=> window.location.href = '/').catch(()=> {
                         this.$data.error = true;
                         this.$data.fallback = 'invalid auth';
-                    
+
                     })
             }
         },

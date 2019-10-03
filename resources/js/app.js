@@ -37,10 +37,10 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/dashboard',
+        path: '/',
         component: Dashboard,
-        
-    }, 
+
+    },
     {
         path: '/history',
         component: History
@@ -52,7 +52,7 @@ const routes = [
         path: '/wishList',
         component: WishList
     }
-    
+
 ];
 const router = new VueRouter({
     mode: 'history',
@@ -66,5 +66,5 @@ const app = new Vue({
         Login,
        Register
     }
-    
+
 });

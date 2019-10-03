@@ -1895,15 +1895,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       ListOfPosts: Array(9).fill('test')
     };
   },
-  mounted: function mounted() {// axios.get('/api/posts').then((resp) => {
-    //     this.$data.ListOfPosts = resp.data;
-    // });
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/posts').then(function (resp) {
+      _this.$data.ListOfPosts = resp.data;
+    });
   }
 });
 
@@ -2069,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
         email: this.$data.email,
         password: this.$data.password
       }).then(function () {
-        return window.location.href = '/dashboard';
+        return window.location.href = '/';
       })["catch"](function () {
         _this.$data.error = true;
         _this.$data.fallback = 'invalid auth';
@@ -2211,12 +2216,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      image: '',
+      imageData: null
+    };
+  },
   methods: {
+    clicked: function clicked(event) {
+      console.log(event.target.value);
+      this.$data.pathToImage = event.target.value; //     const fileReader = new FileReader();
+      //    fileReader.onload = (event)=>{
+      //        console.log(event.target.files['0'].file)
+      //    }
+      //    fileReader.readAsBinaryString(event.target.files['0'].file);
+      // console.log(this.$refs.file.attributes.src);
+      // console.log(event.target.files);
+      // if(event.target.files['0'].name === undefined){
+      // }else{
+      //     this.$refs.file.attributes.src= event.target.files['0'].name;
+      // }
+      // this.$refs.file.attributes.src.nodeValue = event.files['0'].file.name
+    },
     insertAvatar: function insertAvatar() {
+      submit;
       axios.post('/api/avatar').then(function (resp) {
         return console.log('avatar uploaded');
       });
+    },
+    onSelectFile: function onSelectFile(event) {
+      this.$data.imageData = event.target.value;
+    },
+    chooseImage: function chooseImage() {
+      this.$refs.fileInput;
     }
   }
 });
@@ -2249,6 +2290,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2266,8 +2308,6 @@ __webpack_require__.r(__webpack_exports__);
     Avatar: _dashboard_Avatar__WEBPACK_IMPORTED_MODULE_1__["default"],
     Nav: _Nav__WEBPACK_IMPORTED_MODULE_2__["default"],
     AddButton: _Visited_AddButton__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
-  mounted: function mounted() {//axios.get('').then((resp)=> console.log(resp.data));
   }
 });
 
@@ -37625,9 +37665,7 @@ var render = function() {
       _c(
         "nav",
         [
-          _c("router-link", { attrs: { to: "/dashboard" } }, [
-            _vm._v("Dashboard")
-          ]),
+          _c("router-link", { attrs: { to: "/" } }, [_vm._v("Dashboard")]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: "/history" } }, [_vm._v("History")]),
           _vm._v(" "),
@@ -37667,7 +37705,11 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.ListOfPosts, function(ListOfPost, i) {
-      return _c("li", { key: i, domProps: { textContent: _vm._s(ListOfPost) } })
+      return _c(
+        "li",
+        { key: i, domProps: { textContent: _vm._s(ListOfPost.posts) } },
+        [_c("div", { staticClass: "cantainer" })]
+      )
     }),
     0
   )
@@ -38234,11 +38276,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("form", { on: { submit: _vm.insertAvatar } }, [
-      _c("input", {
-        attrs: { type: "file", name: "avatar", accept: "image/*" }
-      })
-    ])
+    _c(
+      "div",
+      {
+        staticClass: "base-image-input",
+        style: { "background-image": "url(" + _vm.imageData },
+        on: { click: _vm.chooseImage }
+      },
+      [
+        _c("span", [_vm._v("\n                choose image\n            ")]),
+        _vm._v(" "),
+        _c("input", {
+          ref: "fileinput",
+          attrs: { type: "file", name: "", id: "" },
+          on: { input: _vm.onSelectFile }
+        })
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -38267,6 +38321,8 @@ var render = function() {
     "div",
     [
       _c("Nav"),
+      _vm._v(" "),
+      _c("Avatar"),
       _vm._v(" "),
       _c("h1", [_vm._v("this is dashboard")]),
       _vm._v(" "),
@@ -53468,7 +53524,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var routes = [{
-  path: '/dashboard',
+  path: '/',
   component: _components_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/history',
