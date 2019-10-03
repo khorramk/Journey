@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API\SOCIALBLOCK;
-
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Posts;
+use App\User;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 class PostsController extends Controller
 {
-    use AuthenticatesUsers;
+
+
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +20,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        dd($request->user(), Auth::user(), auth('api')->user(), auth()->user(), \Auth::check());
-        return \App\User::find(Auth::id())->posts->posts;
+        //search the user logged in and passs pthe related posts
+
+        return Auth::user()->posts;
+        // if(session()->get('_token')-?){
+
+        // }
     }
 
     /**
@@ -65,5 +72,10 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function requestMade(Request $request)
+    {
+      $value = $request->session()->get('key');
+      dd('$value');
     }
 }
