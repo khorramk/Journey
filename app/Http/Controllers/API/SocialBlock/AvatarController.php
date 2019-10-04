@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\API\SOCIALBLOCK;
 
+use App\Avatar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
@@ -16,9 +18,7 @@ class AvatarController extends Controller
     public function index()
     {
         //
-       $contents =  Storage::disk('local')->exists('file1.jpg');
-       $infoOFfile = Storage::get('file1.jpg');
-        dd($infoOFfile);
+       return Storage::get('/storage/images/');
     }
 
     /**
@@ -34,7 +34,21 @@ class AvatarController extends Controller
         //     'file'  =>  'required|file|image|mimes:jpeg,png,gif,jpg|max:2048'
         // ]);
 
-        $file = $request->input();
+        // $request->images->store('images');
+        // $file = $request->input('formData');
+
+        $file = $request->file('image');
+
+        $image  = Storage::disk('public')->putFile('images', $file);
+
+        $avatar = new Avatar;
+        $avatar->path = $image;
+        $avatar->user_id = Auth::id();
+        $avatar->save();
+
+
+
+
 
 
         // $contents = Storage::get($file);
@@ -45,7 +59,7 @@ class AvatarController extends Controller
 
 
 
-            return $file;
+            return $image;
 
 
     }
