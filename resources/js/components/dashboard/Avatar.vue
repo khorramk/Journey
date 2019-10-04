@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class="base-image-input" style="{ 'background-image': url(`/public/storage/avatar)`}" >
+        <div class="base-image-input" :style="{ background-image': url(./storage/images/${this.imageData})}" >
             <span>
                 choose image
             </span>
             <!--use form to submit a file and upload it-->
             <form>
-                <input type="file" name="" id="upload" v-on:change="onSelectFile">
+                <input type="file"  name="" id="upload" v-on:change="onSelectFile">
             </form>
         </div>
 <!--
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { request } from 'http';
     export default {
         data() {
             return {
@@ -30,18 +29,18 @@ import { request } from 'http';
             }
         },
         methods: {
-
             insertAvatar() {
                 submit
                 axios.post('/api/avatar').then((resp)=> console.log('avatar uploaded'))
             },
             onSelectFile(event){
-                    let formData = new FormData();
-
-                 axios.post('/api/avatars', {
-
-                }).then((resp)=> console.log(resp))//this.$data.imageData = '/public/storage/avatar1')
-                .catch((err)=>console.log(err));//this.$data.imageData = /asset/image/url);
+                const formData = new FormData();
+                formData.append('image', event.target.files[0], "TESTING");
+                this.file = event.target.files[0];
+                console.log(this.file);
+                 axios.post('/api/avatars', formData)
+                    .then((resp) => console.log(resp.data))//this.$data.imageData = '/public/storage/avatar1')
+                    .catch((err) => console.log(err));//this.$data.imageData = /asset/image/url);
 
             },
             chooseImage(){
