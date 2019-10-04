@@ -1,10 +1,13 @@
 <template>
     <div>
-        <div class="base-image-input" :style="{ 'background-image': `url(${imageData}`}" @click="chooseImage">
+        <div class="base-image-input" style="{ 'background-image': url(`/public/storage/avatar)`}" >
             <span>
                 choose image
             </span>
-            <input type="file" name="" ref="fileinput" id="" @input="onSelectFile">
+            <!--use form to submit a file and upload it-->
+            <form>
+                <input type="file" name="" id="upload" v-on:change="onSelectFile">
+            </form>
         </div>
 <!--
             <input id="imageUpload"   v-on:click="clicked($event)" type="file"
@@ -17,41 +20,32 @@
 </template>
 
 <script>
+import { request } from 'http';
     export default {
         data() {
             return {
                 image: '',
-               imageData: null
-
+               imageData: null,
+               file: ''
             }
         },
         methods: {
-            clicked(event){
-                console.log(event.target.value);
-                this.$data.pathToImage = event.target.value;
-            //     const fileReader = new FileReader();
-            //    fileReader.onload = (event)=>{
-            //        console.log(event.target.files['0'].file)
-            //    }
 
-            //    fileReader.readAsBinaryString(event.target.files['0'].file);
-                // console.log(this.$refs.file.attributes.src);
-                // console.log(event.target.files);
-                // if(event.target.files['0'].name === undefined){
-
-                // }else{
-                //     this.$refs.file.attributes.src= event.target.files['0'].name;
-                // }
-                // this.$refs.file.attributes.src.nodeValue = event.files['0'].file.name
-            },
             insertAvatar() {
                 submit
                 axios.post('/api/avatar').then((resp)=> console.log('avatar uploaded'))
             },
             onSelectFile(event){
-                this.$data.imageData = event.target.value;
+                    let formData = new FormData();
+
+                 axios.post('/api/avatars', {
+
+                }).then((resp)=> console.log(resp))//this.$data.imageData = '/public/storage/avatar1')
+                .catch((err)=>console.log(err));//this.$data.imageData = /asset/image/url);
+
             },
             chooseImage(){
+                console.log(this.$refs);
                 this.$refs.fileInput;
             }
         },
