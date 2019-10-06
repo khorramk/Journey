@@ -1,14 +1,21 @@
 <template>
-    <div class="avatar-container">
-        <picture class="avatar-container__avatar-picture">
-            <span class="avatar-container__avatar-select-text" v-show="closeUponSelectImage">
+    <div>
+        <!-- <div class="base-image-input" v-bind:style="{ backgroundImage: `url(${imageData})`, width: '80px', height: '90px'}" >
+            <span v-if="gone">
                 choose image
-            </span>
-            <img  class="avatar-container__avatar-img" :src="this.$store.state.avatar.path" alt="avatar" sizes="" width="75" height="75" srcset="" @click="openModal">
-            <div class="modal avatar-container__avatar-modal" v-if="this.$store.state.avatar.open" :style="{width: '400px', height: '300px'}">
-                <input class="avatar-modal__input-avatar base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
-            </div>
-        </picture>
+            </span> -->
+            <picture>
+                <span v-show="gone">
+                    choose image
+                </span>
+                <img :src="imageData" alt="avatar" sizes="" width="75" height="75" srcset="" @click="openModal">
+                <div class="modal" v-if="pop" :style="{width: '400px', height: '300px'}">
+                    <input class="base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
+                </div>
+            </picture>
+                
+           
+        <!-- </div> -->
     </div>
 </template>
 <script>
@@ -16,11 +23,9 @@
         data() {
             return {
                 image: '',
-               imagePath: '',
-               file: '',
                imageData: '',
                file: '',
-               closeUponSelectImage: true,
+               gone: true,
                pop: false
             }
         },
@@ -35,16 +40,12 @@
                 this.file = event.target.files[0];
                 console.log(this.file);
                  axios.post('/api/avatars', formData)
-                   .then((resp) => {
-                      let path = `./storage/${resp.data}`;
-                    this.$store.dispatch('showImage', path),
-                    this.$data.closeUponSelectImage = false, this.$data.pop = false;})
-                    .catch((err) => console.log(err));
+                    .then((resp) => this.$data.imageData = `./storage/${resp.data}`, this.$data.gone = false, this.$data.pop = false)//this.$data.imageData = '/public/storage/avatar1')
+                    .catch((err) => console.log(err));//this.$data.imageData = /asset/image/url);
 
             },
             openModal(){
-                console.log(this.$store.state.avatar);
-                this.$store.commit('openModal');
+                this.$data.pop= true;
             }
         },
 

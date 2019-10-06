@@ -41,10 +41,10 @@ class AvatarController extends Controller
 
         $image  = Storage::disk('public')->putFile('images', $file);
 
-        $avatar = new Avatar;
-        $avatar->path = $image;
-        $avatar->user_id = Auth::id();
-        $avatar->save();
+        // $avatar = new Avatar;
+        // $avatar->path = $image;
+        // $avatar->user_id = Auth::id();
+        // $avatar->save();
 
 
 
