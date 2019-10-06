@@ -1,21 +1,21 @@
 <template>
     <div>
-        <div class="base-image-input" :style="{ background-image': url(./storage/images/${this.imageData})}" >
-            <span>
+        <!-- <div class="base-image-input" v-bind:style="{ backgroundImage: `url(${imageData})`, width: '80px', height: '90px'}" >
+            <span v-if="gone">
                 choose image
-            </span>
-            <!--use form to submit a file and upload it-->
-            <form>
-                <input type="file"  name="" id="upload" v-on:change="onSelectFile">
-            </form>
-        </div>
-<!--
-            <input id="imageUpload"   v-on:click="clicked($event)" type="file"
-            name="profile_photo" placeholder="Photo" required="" capture>
-            <input type="image" :src="pathToImage" alt=""> -->
-
-
-
+            </span> -->
+            <picture>
+                <span v-show="gone">
+                    choose image
+                </span>
+                <img :src="imageData" alt="avatar" sizes="" width="75" height="75" srcset="" @click="openModal">
+                <div class="modal" v-if="pop" :style="{width: '400px', height: '300px'}">
+                    <input class="base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
+                </div>
+            </picture>
+                
+           
+        <!-- </div> -->
     </div>
 </template>
 
@@ -24,8 +24,10 @@
         data() {
             return {
                 image: '',
-               imageData: null,
-               file: ''
+               imageData: '',
+               file: '',
+               gone: true,
+               pop: false
             }
         },
         methods: {
@@ -39,13 +41,12 @@
                 this.file = event.target.files[0];
                 console.log(this.file);
                  axios.post('/api/avatars', formData)
-                    .then((resp) => console.log(resp.data))//this.$data.imageData = '/public/storage/avatar1')
+                    .then((resp) => this.$data.imageData = `./storage/${resp.data}`, this.$data.gone = false, this.$data.pop = false)//this.$data.imageData = '/public/storage/avatar1')
                     .catch((err) => console.log(err));//this.$data.imageData = /asset/image/url);
 
             },
-            chooseImage(){
-                console.log(this.$refs);
-                this.$refs.fileInput;
+            openModal(){
+                this.$data.pop= true;
             }
         },
     }

@@ -2231,8 +2231,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       image: '',
-      imageData: null,
-      file: ''
+      imageData: '',
+      file: '',
+      gone: true,
+      pop: false
     };
   },
   methods: {
@@ -2243,20 +2245,21 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     onSelectFile: function onSelectFile(event) {
+      var _this = this;
+
       var formData = new FormData();
       formData.append('image', event.target.files[0], "TESTING");
       this.file = event.target.files[0];
       console.log(this.file);
       axios.post('/api/avatars', formData).then(function (resp) {
-        return console.log(resp.data);
-      }) //this.$data.imageData = '/public/storage/avatar1')
+        return _this.$data.imageData = "./storage/".concat(resp.data);
+      }, this.$data.gone = false, this.$data.pop = false) //this.$data.imageData = '/public/storage/avatar1')
       ["catch"](function (err) {
         return console.log(err);
       }); //this.$data.imageData = /asset/image/url);
     },
-    chooseImage: function chooseImage() {
-      console.log(this.$refs);
-      this.$refs.fileInput;
+    openModal: function openModal() {
+      this.$data.pop = true;
     }
   }
 });
@@ -38270,8 +38273,60 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("picture", [
+      _c(
+        "span",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.gone,
+              expression: "gone"
+            }
+          ]
+        },
+        [_vm._v("\n                choose image\n            ")]
+      ),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src: _vm.imageData,
+          alt: "avatar",
+          sizes: "",
+          width: "75",
+          height: "75",
+          srcset: ""
+        },
+        on: { click: _vm.openModal }
+      }),
+      _vm._v(" "),
+      _vm.pop
+        ? _c(
+            "div",
+            {
+              staticClass: "modal",
+              style: { width: "400px", height: "300px" }
+            },
+            [
+              _c("input", {
+                staticClass: "base-image-input",
+                attrs: { type: "file", name: "", id: "upload" },
+                on: { change: _vm.onSelectFile }
+              })
+            ]
+          )
+        : _vm._e()
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -54349,8 +54404,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
