@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="register-container mt-pt-middle-top-space">
          <form v-on:submit.prevent="register">
-                        
+
 
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">name</label>
@@ -14,8 +14,8 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 </div>
-                    
-                
+
+
             </div>
         </div>
 
@@ -91,7 +91,7 @@
                     console.log(err.response.data);
                     this.$data.error = true;
                     this.$data.errMessage = 'please check the field';
-                    
+
                     });
             }
         },

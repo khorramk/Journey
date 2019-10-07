@@ -7,13 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/app.css">
 </head>
-<body>
-    <div id="app">
-        <div class="container flex-auto">
-            <main>
-                @yield('content')
-            </main>
-        </div>
+<body >
+    <div id="app" class="h-screen bg-pale-green relative">
+       @yield('content')
     </div>
     <script type="text/javascript" src="./js/app.js"></script>
 </body>
