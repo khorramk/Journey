@@ -20,6 +20,6 @@ Homestead.json
 .rocketeer/
 npm-debug.log
 yarn-error.log
-/public/js
-/public/css
+/public/js/
+/public/css/
 
