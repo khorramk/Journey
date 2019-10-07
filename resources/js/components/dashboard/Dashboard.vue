@@ -1,12 +1,13 @@
 <template>
     <div>
         <Nav/>
+        <Avatar/>
         <h1>this is dashboard</h1>
         <Posts/>
         <AddButton/>
         <form v-on:submit.prevent="logout">
             <input type="submit" value="log out">
-        
+
         </form>
     </div>
 </template>
@@ -28,6 +29,7 @@ import AddButton from '../Visited/AddButton';
             Nav,
             AddButton
         },
+
     }
 </script>
 

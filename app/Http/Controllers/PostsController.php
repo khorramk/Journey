@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API\SOCIALBLOCK;
-
-use App\Avatar;
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use App\Posts;
+use App\User;
 
-class AvatarController extends Controller
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+class PostsController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +20,12 @@ class AvatarController extends Controller
      */
     public function index()
     {
-        //
-       return Storage::get('/storage/images/');
+        //search the user logged in and passs pthe related posts
+
+        return Auth::user()->posts;
+        // if(session()->get('_token')-?){
+
+        // }
     }
 
     /**
@@ -30,38 +37,6 @@ class AvatarController extends Controller
     public function store(Request $request)
     {
         //
-        // $validation = $request->validate([
-        //     'file'  =>  'required|file|image|mimes:jpeg,png,gif,jpg|max:2048'
-        // ]);
-
-        // $request->images->store('images');
-        // $file = $request->input('formData');
-
-        $file = $request->file('image');
-
-        $image  = Storage::disk('public')->putFile('images', $file);
-
-        // $avatar = new Avatar;
-        // $avatar->path = $image;
-        // $avatar->user_id = Auth::id();
-        // $avatar->save();
-
-
-
-
-
-
-        // $contents = Storage::get($file);
-
-        // Storage::disk('local')->put('file1.png', $contents);
-
-        // $path = Storage::url('file1.jpg');
-
-
-
-            return $image;
-
-
     }
 
     /**
@@ -73,7 +48,7 @@ class AvatarController extends Controller
     public function show($id)
     {
         //
-
+        return \App\User::find($id)->posts;
     }
 
     /**
@@ -97,5 +72,10 @@ class AvatarController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function requestMade(Request $request)
+    {
+      $value = $request->session()->get('key');
+      dd('$value');
     }
 }

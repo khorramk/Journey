@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Posts;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Passport;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -23,8 +28,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->registerPolicies();
 
-        //
+
+
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API\SOCIALBLOCK;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PostsController extends Controller
     public function index()
     {
         //
-        return \App\Posts::all();
+        return \App\User::all();
     }
 
     /**
@@ -38,7 +38,7 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        return \App\User::find($id)->posts;
+        return User::find($id);
     }
 
     /**

@@ -22,6 +22,10 @@
 
 Auth::routes();
 
+// Route::prefix('api')->middleware('auth')->group(function () {
+//     Route::get('posts', 'api\SocialBlock\PostsController@index');
+// });
+
 
 // Route::get('/' , function(){
 //     return view('dashboard');
@@ -30,6 +34,19 @@ Auth::routes();
 // {
 //     return view('dashboard');
 // });
+// Route::get('/login' , function(){
+//     return view('auth.login');
+// })->name('login');
+Route::prefix('api')->middleware('auth')->group(function () {
+    Route::get('/posts' , 'Postscontroller@index');
+    Route::resource('/avatars', 'api\SocialBlock\AvatarController');
+});
+
+
 Route::get('/{any}', function(){
     return view('dashboard');
 })->where('any', '.*');
+
+    #cod
+
+

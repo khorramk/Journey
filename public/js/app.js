@@ -1895,6 +1895,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2072,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
         email: this.$data.email,
         password: this.$data.password
       }).then(function () {
-        return window.location.href = '/dashboard';
+        return window.location.href = '/';
       })["catch"](function () {
         _this.$data.error = true;
         _this.$data.fallback = 'invalid auth';
@@ -2092,6 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2212,12 +2216,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      image: '',
+      imageData: '',
+      file: '',
+      gone: true,
+      pop: false
+    };
+  },
   methods: {
     insertAvatar: function insertAvatar() {
+      submit;
       axios.post('/api/avatar').then(function (resp) {
         return console.log('avatar uploaded');
       });
+    },
+    onSelectFile: function onSelectFile(event) {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.append('image', event.target.files[0], "TESTING");
+      this.file = event.target.files[0];
+      console.log(this.file);
+      axios.post('/api/avatars', formData).then(function (resp) {
+        return _this.$data.imageData = "./storage/".concat(resp.data);
+      }, this.$data.gone = false, this.$data.pop = false) //this.$data.imageData = '/public/storage/avatar1')
+      ["catch"](function (err) {
+        return console.log(err);
+      }); //this.$data.imageData = /asset/image/url);
+    },
+    openModal: function openModal() {
+      this.$data.pop = true;
     }
   }
 });
@@ -2237,6 +2279,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_Avatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dashboard/Avatar */ "./resources/js/components/dashboard/Avatar.vue");
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Nav */ "./resources/js/components/Nav.vue");
 /* harmony import */ var _Visited_AddButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Visited/AddButton */ "./resources/js/components/Visited/AddButton.vue");
+//
 //
 //
 //
@@ -2320,7 +2363,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/posts/{}").then(function (resp) {
+    axios.get("/api/posts").then(function (resp) {
       return _this.$data.historyOfPosts = resp.data;
     });
   }
@@ -37664,7 +37707,11 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.ListOfPosts, function(ListOfPost, i) {
-      return _c("li", { key: i, domProps: { textContent: _vm._s(ListOfPost) } })
+      return _c(
+        "li",
+        { key: i, domProps: { textContent: _vm._s(ListOfPost.posts) } },
+        [_c("div", { staticClass: "cantainer" })]
+      )
     }),
     0
   )
@@ -38184,7 +38231,9 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _vm._m(0),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "text", name: "", id: "" } })
       ]
     ),
     _vm._v(" "),
@@ -38229,10 +38278,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("form", { on: { submit: _vm.insertAvatar } }, [
-      _c("input", {
-        attrs: { type: "file", name: "avatar", accept: "image/*" }
-      })
+    _c("picture", [
+      _c(
+        "span",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.gone,
+              expression: "gone"
+            }
+          ]
+        },
+        [_vm._v("\n                choose image\n            ")]
+      ),
+      _vm._v(" "),
+      _c("img", {
+        attrs: {
+          src: _vm.imageData,
+          alt: "avatar",
+          sizes: "",
+          width: "75",
+          height: "75",
+          srcset: ""
+        },
+        on: { click: _vm.openModal }
+      }),
+      _vm._v(" "),
+      _vm.pop
+        ? _c(
+            "div",
+            {
+              staticClass: "modal",
+              style: { width: "400px", height: "300px" }
+            },
+            [
+              _c("input", {
+                staticClass: "base-image-input",
+                attrs: { type: "file", name: "", id: "upload" },
+                on: { change: _vm.onSelectFile }
+              })
+            ]
+          )
+        : _vm._e()
     ])
   ])
 }
@@ -38262,6 +38351,8 @@ var render = function() {
     "div",
     [
       _c("Nav"),
+      _vm._v(" "),
+      _c("Avatar"),
       _vm._v(" "),
       _c("h1", [_vm._v("this is dashboard")]),
       _vm._v(" "),
@@ -53463,7 +53554,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var routes = [{
-  path: '/dashboard',
+  path: '/',
   component: _components_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/history',
@@ -54313,8 +54404,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
