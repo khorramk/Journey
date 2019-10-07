@@ -28,6 +28,8 @@ import Register from './components/auth/Register';
 import History from './components/history/History';
 import Country from './components/Visited/Country';
 import WishList from './components/Visited/WishList';
+import Vuex from 'vuex';
+import store from './store/store';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -65,6 +67,7 @@ const app = new Vue({
     components: {
         Login,
        Register
-    }
+    },
+    store
 
 });
