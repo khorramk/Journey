@@ -1,14 +1,16 @@
 <template>
-    <div>
+    <div class="dashboard-container container flex mb-4">
         <Nav/>
-        <Avatar/>
-        <h1>this is dashboard</h1>
-        <Posts/>
-        <AddButton/>
-        <form v-on:submit.prevent="logout">
-            <input type="submit" value="log out">
 
-        </form>
+            <div class="user-info-container w-2/3 bg-wood">
+                <Avatar/>
+                <h1>this is dashboard</h1>
+            <Posts/>
+            <AddButton/>
+            <form v-on:submit.prevent="logout">
+                <input type="submit" value="log out">
+            </form>
+        </div>
     </div>
 </template>
 
