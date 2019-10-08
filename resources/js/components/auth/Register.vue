@@ -1,72 +1,57 @@
 <template>
-    <div class="register-container mt-pt-middle-top-space">
-         <form v-on:submit.prevent="register">
-
-
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">name</label>
-
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control " v-model="name" name="name" value="name" required autocomplete="name" autofocus>
-
-                <div v-if="error" class="container">
+    <div class="register-container pt-quarter-space-top">
+        <form v-on:submit.prevent="register">
+            <div class="flex flex-col w-full">
+                <label for="name" class="col-md-4 col-form-label text-md-right"></label>
+                <div class="col-md-6">
+                    <input id="name" type="text" class="mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing font-bold border-black " v-model="name" name="name" value="name" required autocomplete="name" autofocus placeholder="Name">
+                    <div v-if="error" class="container">
                         <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    </div>
                 </div>
-
-
             </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="email" class="col-md-4 col-form-label text-md-right">E mail address</label>
-
-            <div class="col-md-6">
-                <input id="email" type="email" class="form-control" v-model="email" name="email" value="Email" required autocomplete="email">
-
+            <div class="form-group row">
+                <label for="email" class="col-md-4 col-form-label text-md-right"></label>
+                <div class="col-md-6">
+                    <input id="email" type="email" class="mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing font-bold border-black" v-model="email" name="email" value="Email" required autocomplete="email" placeholder="Email">
                     <div v-if="error" class="container">
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
-                    </span>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-
-            <div class="col-md-6">
-                <input id="password" type="password" class="form-control " v-model="password" name="password" required autocomplete="new-password">
-
-                <div v-if="error" class="container">
+            <div class="form-group row">
+                <label for="password" class="col-md-4 col-form-label text-md-right"></label>
+                <div class="col-md-6">
+                    <input id="password" type="password" class="mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing font-bold border-black " v-model="password" name="password" required autocomplete="new-password" placeholder="Password">
+                    <div v-if="error" class="container">
                         <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"></label>
 
-        <div class="form-group row">
-            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Pasword</label>
-
-            <div class="col-md-6">
-                <input id="password-confirm" type="password" class="form-control" v-model="passConfirm" name="password_confirmation" required autocomplete="new-password">
+                <div class="col-md-6">
+                    <input id="password-confirm" type="password" class="mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing font-bold border-black" v-model="passConfirm" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                </div>
             </div>
-        </div>
-
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
+            <div class="w-bar-size mx-left-right-space relative">
+                <a href="/" class="w-100 bg-pure-white border-2 h-100 p-link-spacing absolute">log in</a>
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="w-100 bg-leaf-green  border-4 border-black w-login-btn-width absolute right-0 h-100 p-login-spacing">
+                        Register
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
 
-        <input type="text" name="" id="">
-    </form>
-    <a href="/">log in</a>
-</div>
+    </div>
 </template>
 
 <script>

@@ -5,6 +5,12 @@ const mutations = {
      },
      uploadImage: (state, path)=> {
          state.path = path;
+     },
+     loadPosts: (state, posts)=> {
+        state.allPosts = posts;
+     },
+     loadUsersPosts: (state, posts) => {
+        state.usersPosts = posts;
      }
 
 

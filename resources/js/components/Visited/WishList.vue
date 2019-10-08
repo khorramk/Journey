@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Nav></Nav>
         <Avatar/>
         <Search/>
         <AddButton/>
@@ -17,6 +18,7 @@
 import Avatar from '../dashboard/Avatar';
 import Search from '../search/Search';
 import AddButton from '../Visited/AddButton';
+import Nav from '../Nav';
     export default {
         data() {
             return {
@@ -24,10 +26,11 @@ import AddButton from '../Visited/AddButton';
             }
         },
         components: {
+            Nav,
             Avatar,
             Search,
             AddButton,
-        
+
         },
     }
 </script>

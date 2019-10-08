@@ -1,15 +1,12 @@
 <template>
-    <div class="dashboard-container max-h-screen">
-        <Nav/>
-        <form v-on:submit.prevent="logout">
-            <input type="submit" value="log out">
-        </form>
+    <div class="dashboard-container h-screen bg-wood">
+        <Nav />
+
         <div class="user-info-container w-2/3 bg-wood">
             <Avatar/>
             <h1>this is dashboard</h1>
-        <Posts/>
-        <AddButton/>
-
+            <Posts/>
+            <AddButton/>
         </div>
     </div>
 </template>
