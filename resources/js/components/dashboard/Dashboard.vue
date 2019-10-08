@@ -1,8 +1,7 @@
 <template>
     <div class="dashboard-container h-screen bg-wood">
         <Nav />
-
-        <div class="user-info-container w-2/3 bg-wood">
+        <div class="user-info-container bg-wood h-full-viewport">
             <Avatar/>
             <h1>this is dashboard</h1>
             <Posts/>

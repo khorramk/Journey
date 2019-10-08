@@ -19,8 +19,8 @@
         mounted () {
             axios.get('/api/posts').then((resp) => {
                 console.log(resp.data);
-                this.$store.dispatch('getUserPosts', resp.data.allPosts);
-                this.$store.dispatch('getAllPosts', resp.data.loadUsersPosts)
+                this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
+                this.$store.dispatch('getAllPosts', resp.data.allPosts)
             });
         },
     }
