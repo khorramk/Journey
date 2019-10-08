@@ -1,15 +1,11 @@
 <template>
-    <div>
+    <div class="bg-wood h-full-viewport">
       <Nav/>
       <main>
           <Avatar/>
           <Search/>
           <div class="posts-container">
-             <li v-for="(posts, i) in this.$store.state.Posts.usersPosts" :key="i">
-                 <div class="card">
-                     {{posts}}
-                 </div>
-             </li>
+             <Posts :posts="this.$store.state.Posts.usersPost"/>
           </div>
       </main>
     </div>
@@ -24,7 +20,8 @@ import Nav from '../Nav';
         components: {
             Avatar,
             Search,
-            Nav
+            Nav,
+            Posts,
         },
         data() {
             return {

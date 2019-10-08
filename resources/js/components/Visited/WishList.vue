@@ -1,23 +1,27 @@
 <template>
-    <div>
+    <div class="">
         <Nav></Nav>
-        <Avatar/>
-        <Search/>
-        <AddButton/>
-        <WishList/>
-        <div class="container">
-            <li v-for="(wish, i) in wishList" :key="i">
-                <div class="card">
-                    {{i}}
-                </div>
-            </li>
+        <div class="container-for-WishList" v-if="this.$store.state.Modal.open === false">
+
+            <Avatar/>
+            <Search/>
+            <AddButton/>
+            <div class="container">
+                <li v-for="(wish, i) in wishList" :key="i">
+                    <div class="card">
+                        {{i}}
+                    </div>
+                </li>
+            </div>
         </div>
+         <Modal v-if="this.$store.state.Modal.open && this.$store.state.Modal.close === false"/>
     </div>
 </template>
 <script>
 import Avatar from '../dashboard/Avatar';
 import Search from '../search/Search';
 import AddButton from '../Visited/AddButton';
+import Modal from '../Modal';
 import Nav from '../Nav';
     export default {
         data() {
@@ -30,6 +34,7 @@ import Nav from '../Nav';
             Avatar,
             Search,
             AddButton,
+            Modal
 
         },
     }

@@ -11,6 +11,18 @@ const mutations = {
      },
      loadUsersPosts: (state, posts) => {
         state.usersPosts = posts;
+     },
+     closeSwitchedOn: (state)=> {
+         state.close = false;
+     },
+     openModal: (state)=> {
+         state.open = true;
+     },
+     showClosebtn: (state)=> {
+         state.add = false;
+     },
+     close: (state)=> {
+         state.close = false;
      }
 
 
