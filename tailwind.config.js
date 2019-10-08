@@ -5,11 +5,14 @@ module.exports = {
         'pale-green': '#92DFAF',
         'leaf-green': '#D1E9C3',
         'pure-white': '#FFFFFF',
+        'pale-water': '#BBC8CA'
     }),
 
     width: {
         'bar-size': 'calc(100vw - 20vw)',
-        'login-btn-width': '100px'
+        'login-btn-width': '100px',
+        'nav-bar-size': '100vw',
+        'menu-item-size': '25vh'
 
     },
     spacing: {
@@ -18,9 +21,15 @@ module.exports = {
         'login-inputs-size':'80px',
         'bottom-spacing': '30px',
         'login-spacing': '10px',
-        'link-spacing': '10px'
+        'link-spacing': '10px',
+        'quarter-space-top': '25vh',
+        'mr-40' : 'calc(100vw - 80px)',
+
 
     },
+    boxShadow: {
+        'inside-shadow': 'inset 0px 4px 4px rgba(0,0,0,0.25)'
+    }
 
   },
   variants: {},

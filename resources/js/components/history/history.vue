@@ -5,9 +5,9 @@
           <Avatar/>
           <Search/>
           <div class="posts-container">
-             <li v-for="(historyOfPost, i) in historyOfPosts" :key="i">
+             <li v-for="(posts, i) in this.$store.state.Posts.usersPosts" :key="i">
                  <div class="card">
-                     {{historyOfPost}}
+                     {{posts}}
                  </div>
              </li>
           </div>
@@ -31,9 +31,7 @@ import Nav from '../Nav';
                 historyOfPosts: Array(9).fill('test')
             }
         },
-        mounted () {
-            axios.get(`/api/posts`).then((resp)=> this.$data.historyOfPosts = resp.data);
-        },
+
     }
 </script>
 

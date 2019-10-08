@@ -3,7 +3,7 @@
         <form class="login-wrapper__form-login-contianer" v-on:submit.prevent="login">
             <div class="form-login-contianer__login-inputs-container flex flex-col w-full ">
                 <label for="email" class="login-inputs-container__login-email"></label>
-                <input id="email" type="email" class="login-inputs-container__login-email-input mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-szie border border-4 mb-bottom-spacing"
+                <input id="email" type="email" class="login-inputs-container__login-email-input mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-szie border border-4 mb-bottom-spacing font-bold border-black"
                  v-model="email" name="email" value="old email" required autocomplete="email" autofocus placeholder="Email">
                 <div v-if="error"  class="login-inputs-container__wrapper">
                     <span class="invalid-feedback" role="alert">
@@ -11,7 +11,7 @@
                     </span>
                 </div>
                 <label for="password" class="login-inputs-container col-md-4 "></label>
-                <input id="password" v-model="password" type="password" class="login-input-passsword mx-left-right-space shadow-md border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing" name="password" required autocomplete="current-password" placeholder="Password">
+                <input id="password" v-model="password" type="password" class="login-input-passsword mx-left-right-space shadow-md border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing shadow-inside-shadow font-bold border-black" name="password" required autocomplete="current-password" placeholder="Password">
                 <div  v-if="error" class="wrapper">
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ this.$data.fallback }}</strong>
