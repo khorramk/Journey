@@ -3,9 +3,7 @@
         <nav class="nav-container__nav-block inset-y-0.left-0 flex w-nav-bar-size ">
             <div class="dashboard-router-link-container__click-toShow-btn nav-block__nav-links w-menu-item-size border border-black " @click="popLogOutBtn" v-on:mouseleave="showBtn = false">
                 Dashboard
-
             </div>
-
             <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/history">History</router-link>
             <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/visited">Visited</router-link>
             <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/wishList">WishList</router-link>
@@ -22,7 +20,6 @@
 
     </div>
 </template>
-
 <script>
     export default {
         data() {

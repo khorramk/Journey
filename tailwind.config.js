@@ -5,7 +5,8 @@ module.exports = {
         'pale-green': '#92DFAF',
         'leaf-green': '#D1E9C3',
         'pure-white': '#FFFFFF',
-        'pale-water': '#BBC8CA'
+        'pale-water': '#BBC8CA',
+        'light-grey': '#C4C4C4'
     }),
 
     width: {
@@ -33,7 +34,7 @@ module.exports = {
     },
     height: {
         'menu-item-height': '10vh',
-        'full-viewport': '100vh'
+        'full-viewport': '100vh',
     },
 
   },
