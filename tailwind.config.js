@@ -12,7 +12,8 @@ module.exports = {
         'bar-size': 'calc(100vw - 20vw)',
         'login-btn-width': '100px',
         'nav-bar-size': '100vw',
-        'menu-item-size': '25vh'
+        'menu-item-size': '25vw',
+
 
     },
     spacing: {
@@ -29,7 +30,11 @@ module.exports = {
     },
     boxShadow: {
         'inside-shadow': 'inset 0px 4px 4px rgba(0,0,0,0.25)'
-    }
+    },
+    height: {
+        'menu-item-height': '10vh',
+        'full-viewport': '100vh'
+    },
 
   },
   variants: {},

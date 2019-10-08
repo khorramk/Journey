@@ -1882,6 +1882,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1892,6 +1895,12 @@ __webpack_require__.r(__webpack_exports__);
     popLogOutBtn: function popLogOutBtn() {
       console.log('test');
       this.$data.showBtn = true;
+    },
+    logout: function logout() {
+      console.log('test');
+      axios.post('/logout').then(function () {
+        return window.location.href = '/';
+      });
     }
   }
 });
@@ -1930,9 +1939,9 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/posts').then(function (resp) {
       console.log(resp.data);
 
-      _this.$store.dispatch('getUserPosts', resp.data.allPosts);
+      _this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
 
-      _this.$store.dispatch('getAllPosts', resp.data.loadUsersPosts);
+      _this.$store.dispatch('getAllPosts', resp.data.allPosts);
     });
   }
 });
@@ -2281,7 +2290,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_Avatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dashboard/Avatar */ "./resources/js/components/dashboard/Avatar.vue");
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Nav */ "./resources/js/components/Nav.vue");
 /* harmony import */ var _Visited_AddButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Visited/AddButton */ "./resources/js/components/Visited/AddButton.vue");
-//
 //
 //
 //
@@ -37660,7 +37668,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "nav nav-container border bg-green-400 sticky w-screen bg-pale-water"
+        "nav nav-container border bg-green-400 sticky w-screen bg-pale-water h-menu-item-height"
     },
     [
       _c(
@@ -37675,16 +37683,21 @@ var render = function() {
             {
               staticClass:
                 "dashboard-router-link-container__click-toShow-btn nav-block__nav-links w-menu-item-size border border-black ",
-              on: { mouseenter: _vm.popLogOutBtn }
+              on: {
+                click: _vm.popLogOutBtn,
+                mouseleave: function($event) {
+                  _vm.showBtn = false
+                }
+              }
             },
-            [_c("span", [_vm._v("Dashboard")])]
+            [_vm._v("\n            Dashboard\n\n        ")]
           ),
           _vm._v(" "),
           _c(
             "router-link",
             {
               staticClass:
-                "nav-block__nav-links w-menu-item-size border border-black",
+                "nav-block__nav-links w-menu-item-size h-menu-item-height border border-black",
               attrs: { to: "/history" }
             },
             [_vm._v("History")]
@@ -37694,7 +37707,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "nav-block__nav-links w-menu-item-size border border-black",
+                "nav-block__nav-links w-menu-item-size h-menu-item-height border border-black",
               attrs: { to: "/visited" }
             },
             [_vm._v("Visited")]
@@ -37704,7 +37717,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "nav-block__nav-links w-menu-item-size border border-black",
+                "nav-block__nav-links w-menu-item-size h-menu-item-height border border-black",
               attrs: { to: "/wishList" }
             },
             [_vm._v("WishList")]
@@ -37718,7 +37731,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "popup absolute left-0 block mt-2 py-2 w-48 h-75 overflow-y-visible bg-white rounded-lg shadow-xl"
+                "popup absolute inset-y-0.left-0 py-2 overflow-y-visible bg-white w-nav-bar-size"
             },
             [
               _c(
@@ -37735,18 +37748,30 @@ var render = function() {
                 [_c("input", { attrs: { type: "submit", value: "log out" } })]
               ),
               _vm._v(" "),
-              _vm.showBtn
-                ? _c(
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "show-route-to-dashboard__modify-showBtn w-menu-item-size border border-black",
+                  on: {
+                    click: function($event) {
+                      _vm.showBtn = false
+                    }
+                  }
+                },
+                [
+                  _c(
                     "router-link",
                     {
-                      staticClass: "logout-pop-up  w-400 h-12 bg-pale-water",
+                      staticClass: "logout-pop-up  bg-pale-water",
                       attrs: { to: "/" }
                     },
                     [_vm._v("Dashboard")]
                   )
-                : _vm._e()
-            ],
-            1
+                ],
+                1
+              )
+            ]
           )
         : _vm._e()
     ]
@@ -38465,7 +38490,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "user-info-container w-2/3 bg-wood" },
+        { staticClass: "user-info-container bg-wood h-full-viewport" },
         [
           _c("Avatar"),
           _vm._v(" "),
