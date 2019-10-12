@@ -15,14 +15,20 @@ const mutations = {
      closeSwitchedOn: (state)=> {
          state.close = false;
      },
-     openModal: (state)=> {
-         state.open = true;
-     },
      showClosebtn: (state)=> {
          state.add = false;
      },
      close: (state)=> {
          state.close = false;
+     },
+     removeModal: (state)=> {
+         state.close = true;
+     },
+     popAvatarSelection: (state)=> {
+         state.pop = true;
+     },
+     hideModal: (state) => {
+         state.pop = false;
      }
 
 

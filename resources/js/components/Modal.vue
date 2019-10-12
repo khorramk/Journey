@@ -1,14 +1,15 @@
 <template>
     <div class="w-full h-full-screen bg-blue-300">
-        <AddButton />
-            Modal Open
-        <textarea name="" v-model="text" id="" cols="30" rows="10"></textarea>
+        <button>
+            ( X )
+        </button>
+        <textarea name="" v-model="text" id="" cols="30" rows="10" placeholder="share your experience"></textarea>
         <button type="submit" @click="submit">Submit</button>
     </div>
 </template>
 
 <script>
-import AddButton from './Visited/AddButton';
+import CloseButton from './CloseButton';
     export default {
         data() {
             return {
@@ -17,11 +18,11 @@ import AddButton from './Visited/AddButton';
         },
         methods: {
             submit() {
-                axios.post('/api/wishLis', {text: this.$data.text}).then(()=> this.$store.dispatch('closeModal'));
+                axios.post('/api/wishList', {text: this.$data.text}).then(()=> window.location.href = '/');
             }
         },
         components: {
-            AddButton,
+            CloseButton,
         },
     }
 </script>

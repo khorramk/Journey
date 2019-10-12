@@ -2,7 +2,7 @@ import mutations from '../mutations';
 import actions from '../actions';
 
 const state = {
-    open: false
+    close: false
 }
 
 export default {
