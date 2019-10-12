@@ -1,23 +1,27 @@
 <template>
-    <div class="nav nav-container border bg-green-400 sticky w-screen bg-pale-water h-menu-item-height">
-        <nav class="nav-container__nav-block inset-y-0.left-0 flex w-nav-bar-size ">
-            <div class="dashboard-router-link-container__click-toShow-btn nav-block__nav-links w-menu-item-size border border-black " @click="popLogOutBtn" v-on:mouseleave="showBtn = false">
-                Dashboard
-            </div>
-            <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/history">History</router-link>
-            <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/visited">Visited</router-link>
-            <router-link class="nav-block__nav-links w-menu-item-size h-menu-item-height border border-black" to="/wishList">WishList</router-link>
-        </nav>
-        <div v-if="showBtn" class="popup absolute inset-y-0.left-0 py-2 overflow-y-visible bg-white w-nav-bar-size">
+    <div class="nav nav-container  navigation bg-pale-water">
+        <ul class="menu-list m-0 p-0 flex ">
+            <li class="block  ">
+                <router-link class="nav-links menu-item  " to="/"><img class="quarter-width" src="https://img.icons8.com/material/24/000000/home--v5.png" alt="dashboard" @click="popLogOutBtn" v-on:mouseleave="showBtn = false"></router-link>
+            </li>
+            <li class="block  ">
+                <router-link class="nav-links menu-item " to="/history"><img class="quarter-width" src="https://img.icons8.com/cotton/64/000000/time-machine.png" alt="history"></router-link>
+            </li>
+            <li class="block  ">
+                <router-link class="nav-links menu-item " to="/visited"><img class="quarter-width" src="https://img.icons8.com/pastel-glyph/64/000000/location-update.png" alt="visited"></router-link>
+            </li>
+            <li class="block  ">
+                <router-link class="nav-links menu-item " to="/wishlist"><img class="quarter-width" src="https://img.icons8.com/material-sharp/24/000000/bookmark-ribbon.png" alt="wishlist"></router-link>
+            </li>
+        </ul>
+        <div v-if="showBtn" class="popup absolute popup-background pop-up-size">
             <form class="logout-pop-up " v-on:submit.prevent="logout">
-                    <input type="submit" value="log out">
+                    <button type="submit" class="log-out-btn text-center">Log Out</button>
             </form>
-            <div class="show-route-to-dashboard__modify-showBtn w-menu-item-size border border-black" @click="showBtn = false">
-            <router-link class="logout-pop-up  bg-pale-water" to="/">Dashboard</router-link>
-
+            <div class="show-route-to-dashboard__modify-showBtn dashboard-link-size" @click="showBtn = false">
+                <router-link class="logout-pop-up text" to="/">Dashboard</router-link>
             </div>
         </div>
-
     </div>
 </template>
 <script>
@@ -41,5 +45,47 @@
 </script>
 
 <style lang="scss" scoped>
+    @mixin drop-down-block{
+        width: 100%;
+        background: grey;
+        padding: 20px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @mixin  nav-size{
+        width:100%;
+        height: 80px;
+    }
+    @mixin nav-pos{
+        top: 0;
+        position: sticky;
+    }
+    .navigation{
+        @include nav-pos();
+        @include nav-size();
+    }
 
+    
+    .quarter-width{
+        width: 25px;
+       // padding: 20px;
+        margin: 25px;
+        margin-bottom: 10px;
+        height: 25px;
+    }
+    .log-out-btn{
+        @include drop-down-block;
+        
+    }
+    .popup-background{
+        background: red;
+    }
+    .pop-up-size{
+        width: 100px;
+        height: 100px;
+    }
+    .dashboard-link-size{
+        @include drop-down-block;
+    }
+    
 </style>
