@@ -5,7 +5,7 @@
           <Avatar/>
           <Search/>
           <div class="posts-container">
-             <Posts :posts="this.$store.state.Posts.usersPost"/>
+             <Posts/>
           </div>
       </main>
     </div>
