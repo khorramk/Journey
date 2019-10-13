@@ -13,9 +13,8 @@
     export default {
         data() {
             return {
-                image: '',
-               imageData: '',
                file: '',
+               imageData: '',
                closeUponSelectImage: true,
                switch: false
             }
@@ -54,6 +53,7 @@
     @mixin avatar-size {
         width: 75px;
         height: 75px;
+        margin: 20px;
     }
     @mixin avatar-pos{
         left: 0;
@@ -63,6 +63,7 @@
     @mixin avatar-vis{
         background: lightgrey;
         border-radius: 50%;
+        text-align: center;
     }
     @mixin avatar-modal_size{
         width: 100vw;

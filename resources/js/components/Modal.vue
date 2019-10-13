@@ -1,10 +1,12 @@
 <template>
-    <div class="w-full h-full-screen bg-blue-300">
-        <button>
+    <div class="modal bg-blue-300 relative">
+        <button class="cross-btn">
             ( X )
         </button>
-        <textarea name="" v-model="text" id="" cols="30" rows="10" placeholder="share your experience"></textarea>
-        <button type="submit" @click="submit">Submit</button>
+        <form @submit.prevent="submit">
+            <textarea class="text-body" name="" v-model="text" id="" cols="30" rows="10" placeholder="share your experience"></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </template>
 
@@ -18,7 +20,7 @@ import CloseButton from './CloseButton';
         },
         methods: {
             submit() {
-                axios.post('/api/wishList', {text: this.$data.text}).then(()=> window.location.href = '/');
+                axios.post('/api/post', {text: this.$data.text}).then(()=> window.location.href = '/');
             }
         },
         components: {
@@ -28,5 +30,42 @@ import CloseButton from './CloseButton';
 </script>
 
 <style lang="scss" scoped>
+    @mixin modal_size{
+        width: 100%;
+        height: calc(100vh - 80px);
+    }
+    @mixin modal_vis{
+        background: rgb(114, 93, 93);
+        text-align: center;
+    }
+    .modal{
+        @include modal_size();
+        @include modal_vis();
+    }
+    @mixin cross-btn_size{
+        font-size: 25px;
+    }
+    @mixin cross-btn_vis{
+        background:honeydew;
 
+    }
+    @mixin cross-btn_pos{
+        right: 0;
+        position: absolute;
+        top: 0;
+    }
+    .cross-btn{
+        @include cross-btn_pos();
+        @include cross_btn_size();
+        @include cross-btn_vis();
+    }
+    @mixin text-body_size{
+        width: calc(100% - 25px);
+        height: calc(100% - 50px);
+        margin-top: 30px;
+        
+    }
+    .text-body{
+        @include text-body_size();
+    }
 </style>

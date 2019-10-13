@@ -1,8 +1,8 @@
 <template>
-    <div class="nav nav-container  navigation bg-pale-water">
+    <div class="nav nav-container  navigation bg-pale-water ">
         <ul class="menu-list m-0 p-0 flex ">
             <li class="block  ">
-                <router-link class="nav-links menu-item  " to="/"><img class="quarter-width" src="https://img.icons8.com/material/24/000000/home--v5.png" alt="dashboard" @click="popLogOutBtn" v-on:mouseleave="showBtn = false"></router-link>
+                <img class="quarter-width" src="https://img.icons8.com/material/24/000000/home--v5.png" alt="dashboard" @click="popLogOutBtn">
             </li>
             <li class="block  ">
                 <router-link class="nav-links menu-item " to="/history"><img class="quarter-width" src="https://img.icons8.com/cotton/64/000000/time-machine.png" alt="history"></router-link>
@@ -14,9 +14,9 @@
                 <router-link class="nav-links menu-item " to="/wishlist"><img class="quarter-width" src="https://img.icons8.com/material-sharp/24/000000/bookmark-ribbon.png" alt="wishlist"></router-link>
             </li>
         </ul>
-        <div v-if="showBtn" class="popup absolute popup-background pop-up-size">
+        <div v-if="showBtn" class="popup absolute popup-background pop-up-size pop-up" v-on:mouseleave="showBtn = false">
             <form class="logout-pop-up " v-on:submit.prevent="logout">
-                    <button type="submit" class="log-out-btn text-center">Log Out</button>
+                    <button type="submit" class="log-out-btn text-center" >Log Out</button>
             </form>
             <div class="show-route-to-dashboard__modify-showBtn dashboard-link-size" @click="showBtn = false">
                 <router-link class="logout-pop-up text" to="/">Dashboard</router-link>
@@ -58,9 +58,16 @@
     }
     @mixin nav-pos{
         top: 0;
-        position: sticky;
+        position: relative;
     }
-    .navigation{
+    @mixin pop-up_pos{
+        position: absolute;
+        z-index: 1;
+    }   
+    @mixin change_upon_hover{
+        background: white;
+    }
+     .navigation{
         @include nav-pos();
         @include nav-size();
     }
@@ -76,7 +83,11 @@
     .log-out-btn{
         @include drop-down-block;
         
+        
     }
+    .log-out-btn:hover{
+            @include change_upon_hover();
+        }
     .popup-background{
         background: red;
     }
@@ -86,6 +97,15 @@
     }
     .dashboard-link-size{
         @include drop-down-block;
+       
     }
-    
+     .dashboard-link-size:hover{
+            @include change_upon_hover();
+        }
+    .pop-up{
+        @include pop-up_pos();
+    }
+    .pop-up:hover{
+        background: white;
+    }
 </style>
