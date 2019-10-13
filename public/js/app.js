@@ -1911,7 +1911,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      axios.post('/api/post', {
+      axios.post('/api/posts', {
         text: this.$data.text
       }).then(function () {
         return window.location.href = '/';

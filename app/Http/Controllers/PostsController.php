@@ -37,7 +37,11 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new App\Posts();
+        $post = new Posts;
+        $post->posts = $request->input('text');
+        $post->user_id = Auth::id(); 
+        $post->save();
+
     }
 
     /**
