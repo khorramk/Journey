@@ -38,7 +38,7 @@ Auth::routes();
 //     return view('auth.login');
 // })->name('login');
 Route::prefix('api')->middleware('auth')->group(function () {
-    Route::get('/posts' , 'Postscontroller@index');
+    Route::resource('/posts', 'PostsController');
     Route::resource('/avatars', 'api\SocialBlock\AvatarController');
 });
 
