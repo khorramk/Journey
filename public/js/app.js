@@ -2189,8 +2189,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7004,6 +7002,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".plus-btn[data-v-19e96093] {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  margin: 20px;\n  width: 75px;\n  height: 75px;\n  background: teal;\n  font-size: 20px;\n  border-radius: 50%;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".login-input-container[data-v-4221c3ad] {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  padding-bottom: 200px;\n}\n.btn-submits-container[data-v-4221c3ad] {\n  width: 100%;\n  position: absolute;\n  bottom: 0;\n  padding-bottom: 100px;\n}\n.login-form[data-v-4221c3ad] {\n  width: 100vw;\n  height: 100vh;\n  background: #5cd65c;\n  overflow-y: hidden;\n}\n.label-spacing[data-v-4221c3ad] {\n  margin-left: 30px;\n}\n.login-input[data-v-4221c3ad] {\n  width: calc(100vw - 40px);\n  height: 80px;\n  margin-left: 20px;\n  text-indent: 20px;\n}\n.btn-submit-login[data-v-4221c3ad] {\n  background: #D1E9C3;\n  border: solid 2px black;\n  padding-right: 40px;\n  padding-left: 40px;\n  padding-top: 25px;\n  padding-bottom: 25px;\n  float: right;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n.btn-link-register[data-v-4221c3ad] {\n  background: white;\n  border: 1px solid black;\n  padding-right: 40px;\n  padding-left: 40px;\n  padding-top: 25px;\n  padding-bottom: 25px;\n  float: right;\n  margin-left: 20px;\n}", ""]);
 
 // exports
 
@@ -37962,6 +37979,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Avatar.vue?vue&type=style&index=0&id=fbae2cc2&lang=scss&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Avatar.vue?vue&type=style&index=0&id=fbae2cc2&lang=scss&scoped=true& ***!
@@ -39143,135 +39190,121 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "login-wrapper absolute pt-middle-top-space" },
+    "form",
+    {
+      staticClass:
+        "login-wrapper__form-login-contianer login-form bg-pale-green",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.login($event)
+        }
+      }
+    },
     [
-      _c(
-        "form",
-        {
-          staticClass: "login-wrapper__form-login-contianer",
+      _c("div", { staticClass: "login-input-container flex flex-col " }, [
+        _c(
+          "label",
+          {
+            staticClass: "login-email_label label-spacing",
+            attrs: { for: "email" }
+          },
+          [_vm._v("Email")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.email,
+              expression: "email"
+            }
+          ],
+          staticClass:
+            "login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black",
+          attrs: {
+            id: "email",
+            type: "email",
+            name: "email",
+            value: "old email",
+            required: "",
+            autocomplete: "email",
+            autofocus: "",
+            placeholder: "Email"
+          },
+          domProps: { value: _vm.email },
           on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.login($event)
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.email = $event.target.value
             }
           }
-        },
-        [
-          _c(
-            "div",
+        }),
+        _vm._v(" "),
+        _vm.error
+          ? _c("div", { staticClass: "login-inputs-container__wrapper" }, [
+              _c(
+                "span",
+                { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "login-inputs-container label-spacing",
+            attrs: { for: "password" }
+          },
+          [_vm._v("Password")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
             {
-              staticClass:
-                "form-login-contianer__login-inputs-container flex flex-col w-full "
-            },
-            [
-              _c("label", {
-                staticClass: "login-inputs-container__login-email",
-                attrs: { for: "email" }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
-                  }
-                ],
-                staticClass:
-                  "login-inputs-container__login-email-input mx-left-right-space shadow-md  border-4 h-login-inputs-size w-bar-szie border border-4 mb-bottom-spacing font-bold border-black",
-                attrs: {
-                  id: "email",
-                  type: "email",
-                  name: "email",
-                  value: "old email",
-                  required: "",
-                  autocomplete: "email",
-                  autofocus: "",
-                  placeholder: "Email"
-                },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.email = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.error
-                ? _c(
-                    "div",
-                    { staticClass: "login-inputs-container__wrapper" },
-                    [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "invalid-feedback",
-                          attrs: { role: "alert" }
-                        },
-                        [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c("label", {
-                staticClass: "login-inputs-container col-md-4 ",
-                attrs: { for: "password" }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.password,
-                    expression: "password"
-                  }
-                ],
-                staticClass:
-                  "login-input-passsword mx-left-right-space shadow-md border-4 h-login-inputs-size w-bar-size border border-4 mb-bottom-spacing shadow-inside-shadow font-bold border-black",
-                attrs: {
-                  id: "password",
-                  type: "password",
-                  name: "password",
-                  required: "",
-                  autocomplete: "current-password",
-                  placeholder: "Password"
-                },
-                domProps: { value: _vm.password },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.password = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.error
-                ? _c("div", { staticClass: "wrapper" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "invalid-feedback",
-                        attrs: { role: "alert" }
-                      },
-                      [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
-                    )
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(0)
-        ]
-      )
+              name: "model",
+              rawName: "v-model",
+              value: _vm.password,
+              expression: "password"
+            }
+          ],
+          staticClass:
+            "login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black",
+          attrs: {
+            id: "password",
+            type: "password",
+            name: "password",
+            required: "",
+            autocomplete: "current-password",
+            placeholder: "Password"
+          },
+          domProps: { value: _vm.password },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.password = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.error
+          ? _c("div", { staticClass: "wrapper" }, [
+              _c(
+                "span",
+                { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
+              )
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
     ]
   )
 }
@@ -39280,34 +39313,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "form-login-container__submit-redirection-components w-bar-size mx-left-right-space relative"
-      },
-      [
-        _c(
-          "a",
-          {
-            staticClass:
-              "submit-redirection__link w-100 bg-pure-white border-2 h-100 p-link-spacing absolute",
-            attrs: { href: "/register" }
-          },
-          [_vm._v("Register")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "submit-redirection__btn-login w-100 bg-leaf-green  border-4 border-black w-login-btn-width absolute right-0 h-100 p-login-spacing ",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("\n            login\n            ")]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "btn-submits-container relative" }, [
+      _c(
+        "button",
+        {
+          staticClass: "submit-redirection__btn-login btn-submit-login  ",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("  \n        login\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "submit-redirection__link btn-link-register",
+          attrs: { href: "/register" }
+        },
+        [_vm._v("Register")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -56530,7 +56554,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_vue_vue_type_template_id_4221c3ad_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=4221c3ad&scoped=true& */ "./resources/js/components/auth/Login.vue?vue&type=template&id=4221c3ad&scoped=true&");
 /* harmony import */ var _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js& */ "./resources/js/components/auth/Login.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& */ "./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -56538,7 +56564,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Login_vue_vue_type_template_id_4221c3ad_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Login_vue_vue_type_template_id_4221c3ad_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -56567,6 +56593,22 @@ component.options.__file = "resources/js/components/auth/Login.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/auth/Login.vue?vue&type=style&index=0&id=4221c3ad&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_style_index_0_id_4221c3ad_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

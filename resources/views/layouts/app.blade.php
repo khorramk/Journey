@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/app.css">
 </head>
 <body >
-    <div id="app" class="h-screen bg-pale-green relative">
+    <div id="app" class="h-full-screen bg-pale-green relative">
        @yield('content')
     </div>
     <script type="text/javascript" src="./js/app.js"></script>
