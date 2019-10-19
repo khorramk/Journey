@@ -1,6 +1,6 @@
 <template>
     <div class="nav nav-container  navigation bg-pale-water ">
-        <ul class="menu-list m-0 p-0 flex ">
+        <ul class="nav-list ">
             <li class="block  ">
                 <img class="quarter-width" src="https://img.icons8.com/material/24/000000/home--v5.png" alt="dashboard" @click="popLogOutBtn">
             </li>
@@ -14,13 +14,14 @@
                 <router-link class="nav-links menu-item " to="/wishlist"><img class="quarter-width" src="https://img.icons8.com/material-sharp/24/000000/bookmark-ribbon.png" alt="wishlist"></router-link>
             </li>
         </ul>
-        <div v-if="showBtn" class="popup absolute popup-background pop-up-size pop-up" v-on:mouseleave="showBtn = false">
-            <form class="logout-pop-up " v-on:submit.prevent="logout">
-                    <button type="submit" class="log-out-btn text-center" >Log Out</button>
-            </form>
+        <div v-if="showBtn" class="popup absolute popup-background pop-up-size" @mouseleave="showBtn = false">
+           
             <div class="show-route-to-dashboard__modify-showBtn dashboard-link-size" @click="showBtn = false">
                 <router-link class="logout-pop-up text" to="/">Dashboard</router-link>
             </div>
+            <form class="logout-pop-up " v-on:submit.prevent="logout">
+                <button type="submit" class="log-out-btn text-center" >Log Out</button>
+            </form>
         </div>
     </div>
 </template>
@@ -46,11 +47,9 @@
 
 <style lang="scss" scoped>
     @mixin drop-down-block{
-        width: 100%;
         background: grey;
         padding: 20px;
-        padding-right: 0;
-        padding-left: 0;
+      
     }
     @mixin  nav-size{
         width:100%;
@@ -58,7 +57,8 @@
     }
     @mixin nav-pos{
         top: 0;
-        position: relative;
+        position: sticky;
+        z-index: 2;
     }
     @mixin pop-up_pos{
         position: absolute;
@@ -71,14 +71,21 @@
         @include nav-pos();
         @include nav-size();
     }
+    @mixin quarter-width_size{
+        width: 40px;
+        height: 40px;
+        margin:0 0 0 50px;
 
+    }
+    @mixin quarter-width_pos{
+        float:left;
+    }
     
     .quarter-width{
-        width: 25px;
-       // padding: 20px;
-        margin: 25px;
-        margin-bottom: 10px;
-        height: 25px;
+       @include quarter-width_size();
+       @include quarter-width_pos();
+
+       
     }
     .log-out-btn{
         @include drop-down-block;
@@ -89,7 +96,7 @@
             @include change_upon_hover();
         }
     .popup-background{
-        background: red;
+        // background: red;
     }
     .pop-up-size{
         width: 100px;
@@ -108,4 +115,13 @@
     .pop-up:hover{
         background: white;
     }
+    @mixin nav-list_size{
+        width: 100%;
+        height: 100%;
+        padding: 20px 0 0 0;
+    }
+    .nav-list{
+        @include nav-list_size();
+    }
+    
 </style>
