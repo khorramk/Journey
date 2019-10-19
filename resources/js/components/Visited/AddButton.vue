@@ -22,8 +22,8 @@
          
      }
      @mixin plus-btn-pos{
-         position: absolute;
-         right: 0;
+         position: sticky;
+         float: right;
          bottom: 0;
          margin: 20px;
      }

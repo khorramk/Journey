@@ -2,7 +2,7 @@
     <div class="dashboard-container bg-wood">
         <Nav />
         <div class="user-info-container dashboard relative" v-if="this.$store.state.Modal.open === false">
-            <Avatar/>
+            <!-- <Avatar/> -->
             <div class="posts container border border-black border-2">
                 <Posts :posts="this.$store.state.Posts.allPosts"/>
             </div>
@@ -48,6 +48,7 @@ import Modal from '../Modal';
     }
     @mixin dashboard-vis{
         background: rgb(66, 51, 51);
+        overflow-y:initial;
     }
     .dashboard{
         @include dashboard-size();
