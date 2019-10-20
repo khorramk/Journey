@@ -20,7 +20,7 @@ import CloseButton from './CloseButton';
         },
         methods: {
             submit() {
-                axios.post('/api/posts', {text: this.$data.text}).then(()=> window.location.href = '/');
+                axios.post('/api/posts', {text: this.$data.text}).then(()=> window.location.href = '/').catch((err)=> console.log(err));
             }
         },
         components: {
