@@ -1,7 +1,9 @@
 <template>
-        <button @click="showFullModal" class="plus-btn text-center">
+          <button @click="showFullModal" class="plus-btn text-center">
             +
         </button>
+
+        
 </template>
 
 <script>
@@ -22,10 +24,12 @@
          
      }
      @mixin plus-btn-pos{
-         position: sticky;
-         float: right;
+         position: fixed;
+         right: 0;
          bottom: 0;
-         margin: 20px;
+         margin: 60px 20px;
+        z-index: 2;
+
      }
      @mixin plus-btn-vis{
          background: teal;
@@ -36,5 +40,8 @@
          @include plus-btn-pos();
          @include plus-btn-size();
          @include plus-btn-vis();
+     }
+     .btn-container{
+         position: sticky;
      }
 </style>

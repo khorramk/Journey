@@ -3,9 +3,9 @@
         <Nav />
         <div class="user-info-container dashboard relative" v-if="this.$store.state.Modal.open === false">
             <!-- <Avatar/> -->
-            <div class="posts container border border-black border-2">
-                <Posts :posts="this.$store.state.Posts.allPosts"/>
-            </div>
+            
+            <Posts :posts="this.$store.state.Posts.allPosts"/>
+        
             <AddButton/>
         </div>
         <Modal v-if="this.$store.state.Modal.open === true &&  this.$store.state.closeButton.close === false"/>
@@ -43,12 +43,12 @@ import Modal from '../Modal';
 </script>
 <style lang="scss" scoped>
     @mixin dashboard-size{
-        height: calc(100vh - 80px);
+        height: 100%;
         width: 100%;
     }
     @mixin dashboard-vis{
         background: rgb(66, 51, 51);
-        overflow-y:initial;
+    
     }
     .dashboard{
         @include dashboard-size();
