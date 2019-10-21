@@ -5,7 +5,7 @@
           <Avatar/>
           <Search/>
           <div class="posts-container">
-             <Posts/>
+             <Posts />
           </div>
       </main>
     </div>

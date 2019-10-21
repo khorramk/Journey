@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API\SOCIALBLOCK;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Likes;
+use App\Posts;
 
 class LikesController extends Controller
 {
@@ -26,6 +28,13 @@ class LikesController extends Controller
     public function store(Request $request)
     {
         //
+
+       $posts = Posts::find($request->input('postsId'));
+       $posts->likes = $request->input('likes');
+       $posts->save();
+
+       return ['posts-id'=> $posts->id, 'likes' => $posts->likes];
+
     }
 
     /**
