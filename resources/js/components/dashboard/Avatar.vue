@@ -1,22 +1,27 @@
 <template>
-    <picture class="avatar-container__avatar-picture " >
-        <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes="" width="75" height="75" srcset="" placeholder="pic" @click="openSelection">
-        <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop">
-            <button class="remove-btn" v-on:click.prevent="removeSelection">
-               ( X )
-            </button>
-            <input class="avatar-modal__input-avatar base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
-        </div>
-    </picture>
+    <div class="avatar-container">
+        <picture class="avatar-container__avatar-picture">
+            <span class="avatar-container__avatar-select-text" v-show="closeUponSelectImage">
+                choose image
+            </span>
+            <img  class="avatar-container__avatar-img" :src="this.$store.state.avatar.path" alt="avatar" sizes="" width="75" height="75" srcset="" @click="openModal">
+            <div class="modal avatar-container__avatar-modal" v-if="this.$store.state.avatar.open" :style="{width: '400px', height: '300px'}">
+                <input class="avatar-modal__input-avatar base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
+            </div>
+        </picture>
+    </div>
 </template>
 <script>
     export default {
         data() {
             return {
+                image: '',
+               imagePath: '',
                file: '',
                imageData: '',
+               file: '',
                closeUponSelectImage: true,
-               switch: false
+               pop: false
             }
         },
         methods: {
@@ -37,60 +42,13 @@
                     .catch((err) => console.log(err));
 
             },
-            openSelection(){
+            openModal(){
                 console.log(this.$store.state.avatar);
-                this.$store.dispatch('openAvatar');
-                this.$data.switch = true;
-            },
-            removeSelection(){
-                console.log('test');
-                this.$store.dispatch('closeSelection');
-               
+                this.$store.commit('openModal');
             }
         },
 
     }
 
 </script>
-<style lang="scss" scoped>
-    @mixin avatar-size {
-        width: 75px;
-        height: 75px;
-        margin: 20px;
-    }
-    @mixin avatar-pos{
-        left: 0;
-        top: 0;
-        position: absolute;
-    }
-    @mixin avatar-vis{
-        background: lightgrey;
-        border-radius: 50%;
-        text-align: center;
-    }
-    @mixin avatar-modal_size{
-        width: 100vw;
-        height: 100%;
-    }
-    @mixin avatar-modal_vis{
-        background: wheat;
-    }
-   @mixin remove-btn_pos{
-       right: 0;
-       top: 0;
-       position: absolute;
-   }
-    .avatar{
-        @include avatar-pos();
-        @include avatar-size();
-        @include avatar-vis();
-    }
-    .avatar-modal{
-        @include avatar-modal_size();
-        @include avatar-modal_vis();
-    }
-    .remove-btn{
-        @include remove-btn_pos();
-    }
-</style>
 

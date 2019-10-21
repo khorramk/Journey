@@ -21,8 +21,8 @@ class PostsController extends Controller
     public function index()
     {
         //search the user logged in and passs pthe related posts
-        $allPosts = Posts::all();
-        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts];
+
+        return Auth::user()->posts;
         // if(session()->get('_token')-?){
 
         // }
@@ -37,11 +37,6 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new Posts;
-        $post->posts = $request->input('text');
-        $post->user_id = Auth::id(); 
-        $post->save();
-
     }
 
     /**
