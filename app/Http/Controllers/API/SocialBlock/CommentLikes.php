@@ -1,18 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Gate;
+namespace App\Http\Controllers\API\SocialBlock;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Posts;
-use App\User;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
-class PostsController extends Controller
+class CommentLikes extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -20,12 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //search the user logged in and passs pthe related posts
-        $allPosts = Posts::all();
-        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts];
-        // if(session()->get('_token')-?){
-
-        // }
+        //
     }
 
     /**
@@ -37,14 +26,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
-        $post = new Posts;
-        $post->posts = $request->input('text');
-        $post->user_id = Auth::id();
-        $post->likes = 0;
-        $post->save();
-
-
-
+        $comment = Comment::find($request->input('id'));
+       $comment->likes = $request->input('likes');
+       $comment->save();
     }
 
     /**
@@ -56,7 +40,6 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        return \App\User::find($id)->posts;
     }
 
     /**
@@ -80,10 +63,5 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function requestMade(Request $request)
-    {
-      $value = $request->session()->get('key');
-      dd('$value');
     }
 }

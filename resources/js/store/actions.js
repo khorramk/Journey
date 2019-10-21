@@ -22,6 +22,6 @@ const actions = {
     },
     closeSelection: (context) => {
         context.commit('hideModal');
-    },
+    }
 }
 export default actions;
