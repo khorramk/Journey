@@ -1,16 +1,14 @@
 <template>
-    <div class="dashboard-container container flex mb-4">
-        <Nav/>
-
-            <div class="user-info-container w-2/3 bg-wood">
-                <Avatar/>
-                <h1>this is dashboard</h1>
-            <Posts/>
+    <div class="dashboard-container bg-wood">
+        <Nav />
+        <div class="user-info-container dashboard relative" v-if="this.$store.state.Modal.open === false">
+            <!-- <Avatar/> -->
+            
+            <Posts :posts="this.$store.state.Posts.allPosts"/>
+        
             <AddButton/>
-            <form v-on:submit.prevent="logout">
-                <input type="submit" value="log out">
-            </form>
         </div>
+        <Modal v-if="this.$store.state.Modal.open === true &&  this.$store.state.closeButton.close === false"/>
     </div>
 </template>
 
@@ -19,6 +17,7 @@ import Posts from '../Posts/Posts';
 import Avatar from '../dashboard/Avatar';
 import Nav from '../Nav';
 import AddButton from '../Visited/AddButton';
+import Modal from '../Modal';
     export default {
         methods: {
             logout() {
@@ -29,12 +28,31 @@ import AddButton from '../Visited/AddButton';
             Posts,
             Avatar,
             Nav,
-            AddButton
+            AddButton,
+            Modal
+        },
+        mounted () {
+             axios.get('/api/posts').then((resp) => {
+                console.log(resp.data);
+                this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
+                this.$store.dispatch('getAllPosts', resp.data.allPosts);
+                });
         },
 
     }
 </script>
-
 <style lang="scss" scoped>
-
+    @mixin dashboard-size{
+        height: 100%;
+        width: 100%;
+    }
+    @mixin dashboard-vis{
+        background: rgb(66, 51, 51);
+    
+    }
+    .dashboard{
+        @include dashboard-size();
+        @include dashboard-vis();
+    }
 </style>
+

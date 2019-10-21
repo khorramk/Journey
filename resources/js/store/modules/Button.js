@@ -1,12 +1,13 @@
-import actions from '../actions';
 import mutations from '../mutations';
+import actions from '../actions';
+
 const state = {
-    path: '',
-    open: false,
-    pop: false
-};
+    add: true,
+    close: false
+}
+
 export default {
-    state,
     actions,
     mutations,
+    state
 }

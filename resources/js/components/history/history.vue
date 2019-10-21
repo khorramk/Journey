@@ -1,15 +1,11 @@
 <template>
-    <div>
+    <div class="bg-wood h-full-viewport">
       <Nav/>
       <main>
           <Avatar/>
           <Search/>
           <div class="posts-container">
-             <li v-for="(historyOfPost, i) in historyOfPosts" :key="i">
-                 <div class="card">
-                     {{historyOfPost}}
-                 </div>
-             </li>
+             <Posts/>
           </div>
       </main>
     </div>
@@ -24,16 +20,15 @@ import Nav from '../Nav';
         components: {
             Avatar,
             Search,
-            Nav
+            Nav,
+            Posts,
         },
         data() {
             return {
                 historyOfPosts: Array(9).fill('test')
             }
         },
-        mounted () {
-            axios.get(`/api/posts`).then((resp)=> this.$data.historyOfPosts = resp.data);
-        },
+
     }
 </script>
 
