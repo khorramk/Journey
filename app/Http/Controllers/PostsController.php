@@ -22,7 +22,7 @@ class PostsController extends Controller
     {
         //search the user logged in and passs pthe related posts
         $allPosts = Posts::all();
-        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts];
+        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts,];
         // if(session()->get('_token')-?){
 
         // }

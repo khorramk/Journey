@@ -1,14 +1,16 @@
 <template>
     <div class="dashboard-container bg-wood">
         <Nav />
-        <div class="user-info-container dashboard relative" v-if="this.$store.state.Modal.open === false">
+        <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.comment.Modal === false">
             <!-- <Avatar/> -->
-            
-            <Posts :posts="this.$store.state.Posts.allPosts"/>
-        
+            <div v-for="(post, i) in $store.state.Posts.allPosts" :key="i">
+                 <Posts  :post="post" :disable="false"/>
+            </div>
+
             <AddButton/>
         </div>
-        <Modal v-if="this.$store.state.Modal.open === true &&  this.$store.state.closeButton.close === false"/>
+        <CommentModal v-if="$store.state.comment.Modal === true"/>
+        <Modal v-if="$store.state.Modal.open === true && $store.state.closeButton.close === false"/>
     </div>
 </template>
 
@@ -18,6 +20,7 @@ import Avatar from '../dashboard/Avatar';
 import Nav from '../Nav';
 import AddButton from '../Visited/AddButton';
 import Modal from '../Modal';
+import CommentModal from '../CommentsBlock/CommentModal';
     export default {
         methods: {
             logout() {
@@ -29,7 +32,8 @@ import Modal from '../Modal';
             Avatar,
             Nav,
             AddButton,
-            Modal
+            Modal,
+            CommentModal,
         },
         mounted () {
              axios.get('/api/posts').then((resp) => {
@@ -37,6 +41,11 @@ import Modal from '../Modal';
                 this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
                 this.$store.dispatch('getAllPosts', resp.data.allPosts);
                 });
+        },
+        data() {
+            return {
+                likes: 0
+            }
         },
 
     }
@@ -48,7 +57,7 @@ import Modal from '../Modal';
     }
     @mixin dashboard-vis{
         background: rgb(66, 51, 51);
-    
+
     }
     .dashboard{
         @include dashboard-size();
