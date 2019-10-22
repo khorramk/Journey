@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\API\SOCIALBLOCK;
 
+use App\Comments;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Posts;
 
 class CommentsController extends Controller
 {
@@ -15,6 +17,8 @@ class CommentsController extends Controller
     public function index()
     {
         //
+       return [1,2,3,4];
+
     }
 
     /**
@@ -26,6 +30,12 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         //
+       dd($request->all());
+       $comment = new Comments;
+       $comment->comment = $request->input('comments');
+       $comment->posts_id = $request->input('postID')['id'];
+       $comment->likes = 0;
+       $comment->save();
     }
 
     /**
@@ -37,6 +47,9 @@ class CommentsController extends Controller
     public function show($id)
     {
         //
+        $comments = Posts::find($id);
+
+         return ['comments'=> $comments->comments];
     }
 
     /**

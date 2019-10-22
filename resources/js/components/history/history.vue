@@ -2,10 +2,13 @@
     <div class="bg-wood h-full-viewport">
       <Nav/>
       <main>
-          <Avatar/>
+          <!-- <Avatar/> -->
           <Search/>
-          <div class="posts-container">
-             <Posts />
+          <div class="posts-container" v-for="(post, i) in historyOfPosts" :key="i">
+
+             <Posts :post="post" :disable="true"/>
+             <Comment v-if="$store.state.comment.addComments" :commentsHistory="pastComments"/>
+
           </div>
       </main>
     </div>
@@ -15,6 +18,7 @@
 import Avatar from '../dashboard/Avatar';
 import Search from '../search/Search';
 import Posts from '../Posts/Posts';
+import Comments from '../CommentsBlock/Comments';
 import Nav from '../Nav';
     export default {
         components: {
@@ -22,11 +26,18 @@ import Nav from '../Nav';
             Search,
             Nav,
             Posts,
+            Comments,
         },
         data() {
             return {
-                historyOfPosts: Array(9).fill('test')
+                historyOfPosts: ''
             }
+        },
+        mounted () {
+            axios.get('/api/posts').then((resp)=> {
+                console.log(resp);
+               this.$data.historyOfPosts = resp.data['users-posts'];
+            })
         },
 
     }

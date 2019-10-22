@@ -1,3 +1,4 @@
+import { stat } from "fs";
 
 const mutations = {
      openModal: (state)=> {
@@ -29,7 +30,17 @@ const mutations = {
      },
      hideModal: (state) => {
          state.pop = false;
-     }
+     },
+     changeKey: (state) => {
+         state.key += 1;
+     },
+     commentModal: (state, id)=> {
+         state.postID= id;
+         state.Modal = true;
+     },
+     commentModalClose: (state)=> {
+         state.Modal = false;
+     },
 
 
 }

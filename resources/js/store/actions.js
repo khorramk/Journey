@@ -22,6 +22,15 @@ const actions = {
     },
     closeSelection: (context) => {
         context.commit('hideModal');
+    },
+    incrementKey: (context)=> {
+        context.commit('changeKey');
+    },
+    openCommentModal: (context, id)=> {
+        context.commit('commentModal', id);
+    },
+    closeCommentModal: (context) => {
+        context.commit('commentModalClose');
     }
 }
 export default actions;
