@@ -5,10 +5,8 @@
           <!-- <Avatar/> -->
           <Search/>
           <div class="posts-container" v-for="(post, i) in historyOfPosts" :key="i">
-
-             <Posts :post="post" :disable="true"/>
+             <Posts :post="post"/>
              <Comment v-if="$store.state.comment.addComments" :commentsHistory="pastComments"/>
-
           </div>
       </main>
     </div>
@@ -30,13 +28,14 @@ import Nav from '../Nav';
         },
         data() {
             return {
-                historyOfPosts: ''
+                historyOfPosts: '',
             }
         },
-        mounted () {
+        created () {
             axios.get('/api/posts').then((resp)=> {
                 console.log(resp);
                this.$data.historyOfPosts = resp.data['users-posts'];
+               this.$store.dispatch('disableButton');
             })
         },
 

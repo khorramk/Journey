@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<form
+  class="register-form relative"
+>
+  <div
+    class="register-inputs-container absolute flex flex-col"
+  >
+    <label
+      class="label-name label"
+      for="name"
+    >
+      Name
+    </label>
+     
+    <input
+      autocomplete="name"
+      autofocus="autofocus"
+      class="shadow-md inputs-for-register border-4 border border-4  font-bold border-black "
+      id="name"
+      name="name"
+      placeholder="Name"
+      required="required"
+      type="text"
+      value="name"
+    />
+     
+    <!---->
+     
+    <label
+      class="label-email label"
+      for="email"
+    >
+      Email
+    </label>
+     
+    <input
+      autocomplete="email"
+      class=" shadow-md  border-4  border border-4 inputs-for-register font-bold border-black"
+      id="email"
+      name="email"
+      placeholder="Email"
+      required="required"
+      type="email"
+      value="Email"
+    />
+     
+    <!---->
+     
+    <label
+      class="label-password label"
+      for="password"
+    >
+      Password
+    </label>
+     
+    <input
+      autocomplete="new-password"
+      class=" shadow-md  border-4  border border-4 inputs-for-register font-bold border-black "
+      id="password"
+      name="password"
+      placeholder="Password"
+      required="required"
+      type="password"
+    />
+     
+    <!---->
+     
+    <label
+      class="label-password label"
+      for="password-confirm"
+    >
+      Confirm Password
+    </label>
+     
+    <input
+      autocomplete="new-password"
+      class=" shadow-md  border-4  border border-4 inputs-for-register font-bold border-black"
+      id="password-confirm"
+      name="password_confirmation"
+      placeholder="Confirm Password"
+      required="required"
+      type="password"
+    />
+  </div>
+   
+  <div
+    class="btn-submit-container"
+  >
+    <button
+      class=" bg-leaf-green  border-4 border-black btn-register"
+      type="submit"
+    >
+      
+            Register
+        
+    </button>
+     
+    <a
+      class="btn-link-sign-in bg-pure-white border-2 "
+      href="/"
+    >
+      Sign in
+    </a>
+  </div>
+</form>
+`;

@@ -4,7 +4,7 @@
         <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.comment.Modal === false">
             <!-- <Avatar/> -->
             <div v-for="(post, i) in $store.state.Posts.allPosts" :key="i">
-                 <Posts  :post="post" :disable="false"/>
+                 <Posts  :post="post"/>
             </div>
 
             <AddButton/>
@@ -40,11 +40,13 @@ import CommentModal from '../CommentsBlock/CommentModal';
                 console.log(resp.data);
                 this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
                 this.$store.dispatch('getAllPosts', resp.data.allPosts);
+                this.$store.dispatch('enableButton');
                 });
         },
         data() {
             return {
-                likes: 0
+                likes: 0,
+                disable: ''
             }
         },
 
