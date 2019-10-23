@@ -14,7 +14,7 @@
             </div>
             <form v-on:submit.prevent="submit($props.post.id)">
                 <!-- increments the like -->
-                <button type="submit" @click="liked += 1" disabled="$props.disable">
+                <button type="submit" @click="liked += 1" :disabled="$store.state.Posts.disable">
                     <!-- show the filtred likes upon increment -->
                          <img class="like-btn" src="https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"/>
                          <span v-text="liked || post.likes"></span>

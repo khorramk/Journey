@@ -1,5 +1,5 @@
 <template>
-    <div class="modal bg-blue-300 relative">
+    <div class="modal">
         <button class="cross-btn">
             ( X )
         </button>
@@ -41,6 +41,7 @@ import CloseButton from './CloseButton';
     .modal{
         @include modal_size();
         @include modal_vis();
+        position: relative;
     }
     @mixin cross-btn_size{
         font-size: 25px;
@@ -63,7 +64,7 @@ import CloseButton from './CloseButton';
         width: calc(100% - 25px);
         height: calc(100% - 50px);
         margin-top: 30px;
-        
+
     }
     .text-body{
         @include text-body_size();

@@ -41,6 +41,12 @@ const mutations = {
      commentModalClose: (state)=> {
          state.Modal = false;
      },
+     turnOfTheButton: (state)=> {
+         state.disable = true;
+     },
+     turnOnTheButton: (state)=> {
+         state.disable = false;
+     }
 
 
 }

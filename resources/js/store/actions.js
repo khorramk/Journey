@@ -31,6 +31,12 @@ const actions = {
     },
     closeCommentModal: (context) => {
         context.commit('commentModalClose');
+    },
+    disableButton: (context) => {
+        context.commit('turnOfTheButton');
+    },
+    enableButton: (context)=> {
+        context.commit('turnOnTheButton')
     }
 }
 export default actions;

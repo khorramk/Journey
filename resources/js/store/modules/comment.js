@@ -3,7 +3,7 @@ import actions from '../actions';
 
 const state = {
     postID: 0,
-    Modal: true,
+    Modal: false,
 }
 
 export default {
