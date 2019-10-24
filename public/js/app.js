@@ -2277,6 +2277,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2297,18 +2300,15 @@ exports["default"] = void 0;
 //
 //
 //
-var _default = {
+//
+//
+//
+var _default = _defineProperty({
   data: function data() {
     return {
       fetchCountryWrapperObject: [],
-      search: '',
-      answer: ''
+      search: ''
     };
-  },
-  watch: {
-    search: function search() {
-      this.debounceGetCountries();
-    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -2323,19 +2323,26 @@ var _default = {
       axios.post('/api/wishList').then();
     }
   },
-  created: function created() {
-    this.debounceGetCountries = _.debounce(function () {
+  computed: {
+    populate: function populate() {
       var _this2 = this;
 
-      this.$data.answer = this.fetchCountryWrapperObject.map(function (countries, i) {
+      return this.fetchCountryWrapperObject.map(function (countries, i) {
         return countries.name;
-      }).filter(function (countryName) {
+      }).filter(function (countryName, i) {
         console.log(countryName);
         return countryName.toLowerCase().includes(_this2.$data.search.toLowerCase());
       });
-    }, 500);
+    }
   }
-};
+}, "methods", {
+  insertAndShift: function insertAndShift(from, to, arr) {
+    var cutOut = arr.splice(from, 1)[0]; // cut the element at index 'from'
+
+    arr.splice(to, 0, cutOut); // insert it at index 'to'
+  }
+});
+
 exports["default"] = _default;
 
 /***/ }),
@@ -39906,8 +39913,63 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "form",
+        { attrs: { action: "" } },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            attrs: { type: "search", name: "", id: "", autocomplete: "on" },
+            domProps: { value: _vm.search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.countryData, function(country, i) {
+            return _c("div", { key: i, staticClass: "country-list" }, [
+              _c("h5", [
+                _vm._v(
+                  "\n                            " +
+                    _vm._s(country) +
+                    "\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "country" },
+                domProps: { value: country }
+              })
+            ])
+          }),
+          _vm._v(" "),
+          _c("button", { attrs: { type: "submit" } }, [_vm._v(" submit")])
+        ],
+        2
+      )
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
