@@ -36,7 +36,10 @@ const actions = {
         context.commit('turnOfTheButton');
     },
     enableButton: (context)=> {
-        context.commit('turnOnTheButton')
+        context.commit('turnOnTheButton');
+    },
+    AddCountry: (context)=> {
+        context.commit('loadModal');
     }
 }
 export default actions;

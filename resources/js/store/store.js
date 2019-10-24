@@ -6,6 +6,7 @@ import Modal from './modules/Modal';
 import Button from './modules/Button';
 import closeButton from './modules/closeButton';
 import comment from './modules/comment';
+import Country from './modules/Country';
 Vue.use(Vuex);
 
 
@@ -19,6 +20,7 @@ const store = new Vuex.Store({
         Button,
         closeButton,
         comment,
+        Country,
     },
 
 })

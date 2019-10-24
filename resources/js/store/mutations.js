@@ -46,6 +46,9 @@ const mutations = {
      },
      turnOnTheButton: (state)=> {
          state.disable = false;
+     },
+     loadModal: (state)=>{
+         state.openCountryModal = true;
      }
 
 
