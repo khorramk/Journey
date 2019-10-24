@@ -10,7 +10,7 @@
             <AddButton/>
         </div>
         <CommentModal v-if="$store.state.comment.Modal === true"/>
-        <Modal v-if="$store.state.Modal.open === true && $store.state.closeButton.close === false"/>
+        <PostsModal v-if="$store.state.Modal.open === true && $store.state.closeButton.close === false"/>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ import Posts from '../Posts/Posts';
 import Avatar from '../dashboard/Avatar';
 import Nav from '../Nav';
 import AddButton from '../Visited/AddButton';
-import Modal from '../Modal';
+import PostsModal from '../PostsModal';
 import CommentModal from '../CommentsBlock/CommentModal';
     export default {
         methods: {
@@ -32,7 +32,7 @@ import CommentModal from '../CommentsBlock/CommentModal';
             Avatar,
             Nav,
             AddButton,
-            Modal,
+            PostsModal,
             CommentModal,
         },
         mounted () {
