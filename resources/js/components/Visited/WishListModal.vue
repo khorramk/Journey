@@ -1,10 +1,11 @@
 <template>
     <div class="container">
         <div class="row">
-             <input class="w-100 p-2"  type="file"  name="" id="upload" v-on:change="onSelectFile" placeholder="add image">
-           <form action="" autocomplete="on" class="w-100" @submit.prevent="submit">
+            
+           <form action="" autocomplete="on" class="w-100" @submit.prevent="submit" enctype='multipart/form-data'>
+               <input ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload" v-on:change="onSelectFile" placeholder="add image">
                
-                <input type="search" v-model="search" name="" id="" class="w-100 p-2" placeholder="type the country"/>
+                <input type="search" v-model="search" name="name" id="" class="w-100 p-2" placeholder="type the country"/>
            
                    
                         <div v-for="(country, i) in populate" :key="i" class="country-list">
@@ -13,9 +14,8 @@
                             </div>
                             
                         </div>
+                         <button type="submit"></button>
                         
-                        
-                        <button type="submit"> submit</button>
            </form>
         </div>
     </div>
@@ -26,9 +26,7 @@
         data() {
             return {
                 fetchCountryWrapperObject: [],
-                search: '',
-                file: ''
-            
+                search: ''
             
             }
         },
@@ -45,6 +43,7 @@
                 });
                 return this.inputslist(this.$data.search, name).filter((e)=> e !== null);
             },
+            
 
             
         },
@@ -61,20 +60,35 @@
             },
             submit() {
                 console.log('test');
+                debugger;
 
-                axios.post('/api/visited',{
-                    value: this.$data.search,
-                    file: this.$data.file
-                }).then(()=> window.location.href = '/visited');
+                var formData = new FormData();
+                formData.append("image", this.$refs.fileInput.files[0]);
+                formData.append("search", this.$data.search);
+                axios.post('/api/visited', formData, {
+                   
+                        value: this.$data.search,
+                    
+                }).then((resp)=> console.log(resp.data));
 
             },
             onSelectFile(event){
-                let formData = new FormData();
+                const formData = new FormData();
                 formData.append('image', event.target.files[0], "TESTING");
-                this.$data.file = formData;
-                console.log(formData);
+                this.file = event.target.files[0];
+                console.log(this.file);
+                this.$store.dispatch('store_image_file', formData)
+          
+
+                //this is post CASUING SOME CONFUSION
+                // IT NEEDS TO BE REMOVED
+                //  axios.post('/api/visited', formData)
+                //    .then((resp) => { console.log(resp.data)
+                //       })
+                //     .catch((err) => console.log(err));
 
             },
+            
         },
     }
 </script>
@@ -90,5 +104,14 @@
     .country:hover{
         box-shadow: 1px;
         cursor: pointer;
+    }
+    input[type="file" i]:before{
+        width: 100% important;
+        background: rgb(10, 10, 53);
+        color: white;
+    }
+    button, input{
+        background: black;
+        color: white;
     }
 </style>

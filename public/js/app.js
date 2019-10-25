@@ -2304,8 +2304,7 @@ var _default = {
   data: function data() {
     return {
       fetchCountryWrapperObject: [],
-      search: '',
-      file: ''
+      search: ''
     };
   },
   mounted: function mounted() {
@@ -2339,18 +2338,27 @@ var _default = {
     },
     submit: function submit() {
       console.log('test');
-      axios.post('/api/visited', {
-        value: this.$data.search,
-        file: this.$data.file
-      }).then(function () {
-        return window.location.href = '/visited';
+      debugger;
+      var formData = new FormData();
+      formData.append("image", this.$refs.fileInput.files[0]);
+      formData.append("search", this.$data.search);
+      axios.post('/api/visited', formData, {
+        value: this.$data.search
+      }).then(function (resp) {
+        return console.log(resp.data);
       });
     },
     onSelectFile: function onSelectFile(event) {
       var formData = new FormData();
       formData.append('image', event.target.files[0], "TESTING");
-      this.$data.file = formData;
-      console.log(formData);
+      this.file = event.target.files[0];
+      console.log(this.file);
+      this.$store.dispatch('store_image_file', formData); //this is post CASUING SOME CONFUSION
+      // IT NEEDS TO BE REMOVED
+      //  axios.post('/api/visited', formData)
+      //    .then((resp) => { console.log(resp.data)
+      //       })
+      //     .catch((err) => console.log(err));
     }
   }
 };
@@ -7356,7 +7364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".country[data-v-fc0dbab0] {\n  width: 100%;\n  padding-bottom: 20px;\n}\n.country[data-v-fc0dbab0]:hover {\n  box-shadow: 1px;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".country[data-v-fc0dbab0] {\n  width: 100%;\n  padding-bottom: 20px;\n}\n.country[data-v-fc0dbab0]:hover {\n  box-shadow: 1px;\n  cursor: pointer;\n}\ninput[type=file i][data-v-fc0dbab0]:before {\n  width: 100% important;\n  background: #0a0a35;\n  color: white;\n}\nbutton[data-v-fc0dbab0], input[data-v-fc0dbab0] {\n  background: black;\n  color: white;\n}", ""]);
 
 // exports
 
@@ -40003,22 +40011,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c("input", {
-        staticClass: "w-100 p-2",
-        attrs: {
-          type: "file",
-          name: "",
-          id: "upload",
-          placeholder: "add image"
-        },
-        on: { change: _vm.onSelectFile }
-      }),
-      _vm._v(" "),
       _c(
         "form",
         {
           staticClass: "w-100",
-          attrs: { action: "", autocomplete: "on" },
+          attrs: {
+            action: "",
+            autocomplete: "on",
+            enctype: "multipart/form-data"
+          },
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -40027,6 +40028,18 @@ var render = function() {
           }
         },
         [
+          _c("input", {
+            ref: "fileInput",
+            staticClass: "w-100 p-2",
+            attrs: {
+              type: "file",
+              name: "file",
+              id: "upload",
+              placeholder: "add image"
+            },
+            on: { change: _vm.onSelectFile }
+          }),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -40039,7 +40052,7 @@ var render = function() {
             staticClass: "w-100 p-2",
             attrs: {
               type: "search",
-              name: "",
+              name: "name",
               id: "",
               placeholder: "type the country"
             },
@@ -40077,7 +40090,7 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _c("button", { attrs: { type: "submit" } }, [_vm._v(" submit")])
+          _c("button", { attrs: { type: "submit" } })
         ],
         2
       )
@@ -58363,6 +58376,9 @@ var actions = {
   },
   AddCountry: function AddCountry(context) {
     context.commit('loadModal');
+  },
+  store_image_file: function store_image_file(context, file) {
+    context.commit('store_image', file);
   }
 };
 var _default = actions;
@@ -58608,6 +58624,40 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/visited.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/visited.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _mutations = _interopRequireDefault(__webpack_require__(/*! ../mutations */ "./resources/js/store/mutations.js"));
+
+var _actions = _interopRequireDefault(__webpack_require__(/*! ../actions */ "./resources/js/store/actions.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var state = {
+  imagePath: '',
+  file: ''
+};
+var _default = {
+  actions: _actions["default"],
+  mutations: _mutations["default"],
+  state: state
+};
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./resources/js/store/mutations.js":
 /*!*****************************************!*\
   !*** ./resources/js/store/mutations.js ***!
@@ -58674,6 +58724,9 @@ var mutations = {
   },
   loadModal: function loadModal(state) {
     state.openCountryModal = true;
+  },
+  store_image: function store_image(state, file) {
+    state.file = file;
   }
 };
 var _default = mutations;
@@ -58714,6 +58767,8 @@ var _comment = _interopRequireDefault(__webpack_require__(/*! ./modules/comment 
 
 var _Country = _interopRequireDefault(__webpack_require__(/*! ./modules/Country */ "./resources/js/store/modules/Country.js"));
 
+var _visited = _interopRequireDefault(__webpack_require__(/*! ./modules/visited */ "./resources/js/store/modules/visited.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 _vue["default"].use(_vuex["default"]);
@@ -58726,7 +58781,8 @@ var store = new _vuex["default"].Store({
     Button: _Button["default"],
     closeButton: _closeButton["default"],
     comment: _comment["default"],
-    Country: _Country["default"]
+    Country: _Country["default"],
+    visited: _visited["default"]
   }
 });
 var _default = store;
