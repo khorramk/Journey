@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API\COUNTRIES;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Visited;
+use \App\Visited;
 class VisitedController extends Controller
 {
     /**
@@ -26,14 +26,15 @@ class VisitedController extends Controller
      */
     public function store(Request $request)
     {
-        //store the  countries
+        // dd($request->file('image'));
+        //store the  countrie
         $visited = new Visited;
-        $visited->country_name = $request->input('value');
+        //need to fix the search string and put in to country_name
+        $visited->country_name = $request->file('search');
         $file = $request->file('image');
-        dd($file);
-        $image  = Storage::disk('public')->putFile('images', $file);
-    
-        $visited->image = $image;
+        $image = Storage::disk('public')->putFile('images', $file);
+        $visited->images = $image;
+        $visited->users_id = 1;
         $visited->save();
     }
 

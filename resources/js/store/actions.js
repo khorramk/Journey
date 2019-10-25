@@ -40,6 +40,9 @@ const actions = {
     },
     AddCountry: (context)=> {
         context.commit('loadModal');
+    },
+    store_image_file: (context, file)=> {
+        context.commit('store_image', file)
     }
 }
 export default actions;
