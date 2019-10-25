@@ -1,12 +1,12 @@
 <template>
     <picture class="avatar-container__avatar-picture " >
         <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes="" width="75" height="75" srcset="" placeholder="pic" @click="openSelection">
-        <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop">
+        <!-- <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop"> -->
             <button class="remove-btn" v-on:click.prevent="removeSelection">
                ( X )
             </button>
             <input class="avatar-modal__input-avatar base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
-        </div>
+        <!-- </div> -->
     </picture>
 </template>
 <script>
@@ -60,7 +60,7 @@
     }
     @mixin avatar-pos{
         left: 0;
-        top: 0;
+        bottom: 0;
         position: absolute;
     }
     @mixin avatar-vis{

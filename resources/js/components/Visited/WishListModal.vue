@@ -1,21 +1,21 @@
 <template>
     <div class="container">
         <div class="row">
-           <form action="">
-
-                <input type="search" v-model="search" name="" id="" autocomplete="on"/>
+             <input class="w-100 p-2"  type="file"  name="" id="upload" v-on:change="onSelectFile" placeholder="add image">
+           <form action="" autocomplete="on" class="w-100" @submit.prevent="submit">
+               
+                <input type="search" v-model="search" name="" id="" class="w-100 p-2" placeholder="type the country"/>
            
                    
-                        <div v-for="(country, i) in countryData" :key="i" class="country-list">
-                            <h5>
+                        <div v-for="(country, i) in populate" :key="i" class="country-list">
+                            <div class="clickable-input country" @click="$data.search = country">
                                 {{country}}
-                            </h5>
-                            <input type="hidden" name="country" :value="country">
+                            </div>
+                            
                         </div>
                         
                         
-                
-                <button type="submit"> submit</button>
+                        <button type="submit"> submit</button>
            </form>
         </div>
     </div>
@@ -26,7 +26,9 @@
         data() {
             return {
                 fetchCountryWrapperObject: [],
-                search: ''
+                search: '',
+                file: ''
+            
             
             }
         },
@@ -36,32 +38,57 @@
                 this.$data.fetchCountryWrapperObject = resp.data;
             });
         },
-        methods: {
-            submit() {
-                axios.post('/api/wishList').then();
-            }
-        },
         computed: {
             populate: function(){
-               return this.fetchCountryWrapperObject.map((countries, i)=> {
+               let name = this.fetchCountryWrapperObject.map((countries, i)=> {
                       return countries.name;
-                }).filter((countryName, i)=> {
-                    console.log(countryName);
-                    return countryName.toLowerCase().includes(this.$data.search.toLowerCase());
-                })
+                });
+                return this.inputslist(this.$data.search, name).filter((e)=> e !== null);
             },
 
             
         },
         methods: {
-            insertAndShift(from, to, arr) {
-                    let cutOut = arr.splice(from, 1) [0]; // cut the element at index 'from'
-                    arr.splice(to, 0, cutOut);            // insert it at index 'to'
-            }
+             inputslist(inp, arr) {
+                let listsorted = [];
+                for(let i=0; i < arr.length; i++){
+                    
+                   let list = arr[i].substr(0, inp.length).toUpperCase() === inp.toUpperCase() ? arr[i]:null;
+                             listsorted.push(list);
+                    
+                }
+                return listsorted;
+            },
+            submit() {
+                console.log('test');
+
+                axios.post('/api/visited',{
+                    value: this.$data.search,
+                    file: this.$data.file
+                }).then(()=> window.location.href = '/visited');
+
+            },
+            onSelectFile(event){
+                let formData = new FormData();
+                formData.append('image', event.target.files[0], "TESTING");
+                this.$data.file = formData;
+                console.log(formData);
+
+            },
         },
     }
 </script>
 
 <style lang="scss" scoped>
-
+    @mixin country{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .country{
+        @include country();
+    }
+    .country:hover{
+        box-shadow: 1px;
+        cursor: pointer;
+    }
 </style>
