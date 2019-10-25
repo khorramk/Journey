@@ -1,5 +1,6 @@
 <template>
     <div class="dashboard-container bg-wood">
+      
         <Nav />
         <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.comment.Modal === false">
             <!-- <Avatar/> -->
@@ -9,6 +10,7 @@
 
             <AddButton/>
         </div>
+          <Avatar/>
         <CommentModal v-if="$store.state.comment.Modal === true"/>
         <PostsModal v-if="$store.state.Modal.open === true && $store.state.closeButton.close === false"/>
     </div>

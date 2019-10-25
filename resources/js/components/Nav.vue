@@ -8,7 +8,7 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <router-link class="dropdown-item" to="/Dashboard">Action</router-link>
+                    <router-link class="dropdown-item" to="/">Dashboard</router-link>
                     <form class="logout-pop-up " v-on:submit.prevent="logout">
                         <button type="submit" class="log-out-btn text-center" >Log Out</button>
                     </form>
