@@ -52,8 +52,10 @@ const mutations = {
      },
      putPosts: (state)=> {
          state.openPostsModal = true;
+     },
+     openWishes: (state)=> {
+         state.open = true;
      }
-
 
 }
 
