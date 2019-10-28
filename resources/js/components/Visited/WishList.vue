@@ -19,7 +19,7 @@
 import Avatar from '../dashboard/Avatar';
 import Search from '../search/Search';
 import AddButton from '../Visited/AddButton';
-import WishListModal from './WishListModal';
+// import WishListModal from './WishListModal';
 import Nav from '../Nav';
     export default {
         data() {
@@ -32,7 +32,7 @@ import Nav from '../Nav';
             Avatar,
             Search,
             AddButton,
-            WishListModal
+            // WishListModal
 
         },
     }
