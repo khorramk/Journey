@@ -5,7 +5,8 @@ const state = {
     usersPosts : [],
     allPosts: [],
     key: 0,
-    disable: false
+    disable: false,
+    openPostsModal: false
 }
 
 export default {

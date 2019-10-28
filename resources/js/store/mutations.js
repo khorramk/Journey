@@ -50,8 +50,8 @@ const mutations = {
      loadModal: (state)=>{
          state.openCountryModal = true;
      },
-     store_image: (state, file)=> {
-         state.file = file
+     putPosts: (state)=> {
+         state.openPostsModal = true;
      }
 
 

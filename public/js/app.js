@@ -2077,6 +2077,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -2127,7 +2129,7 @@ var _default = {
     showFullModal: function showFullModal() {
       if (this.$route.path === '/visited') {
         return this.$store.dispatch('AddCountry');
-      } else if (this.$route.path === '/dashboard') {
+      } else if (this.$route.path === '/') {
         return this.$store.dispatch('AddPosts');
       } else if (this.$route.path === '/wishList') {
         return this.store.dispatch('addWishes');
@@ -7328,7 +7330,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".modal[data-v-69acca45] {\n  width: 100%;\n  height: calc(100vh - 80px);\n  background: #725d5d;\n  text-align: center;\n  position: relative;\n}\n.cross-btn[data-v-69acca45] {\n  right: 0;\n  position: absolute;\n  top: 0;\n  font-size: 25px;\n  background: honeydew;\n}\n.text-body[data-v-69acca45] {\n  width: calc(100% - 25px);\n  height: calc(100% - 50px);\n  margin-top: 30px;\n}", ""]);
+exports.push([module.i, ".modal[data-v-69acca45] {\n  width: 100%;\n  height: calc(100vh - 80px);\n  background: #725d5d;\n  text-align: center;\n  position: relative;\n}\n.cross-btn[data-v-69acca45] {\n  right: 0;\n  position: absolute;\n  top: 0;\n  font-size: 25px;\n  background: honeydew;\n}\n.text-body[data-v-69acca45] {\n  width: calc(100% - 25px);\n  height: calc(100% - 50px);\n  margin-top: 30px;\n}\ntextarea[data-v-69acca45] {\n  width: calc(100vw - 30px);\n  height: calc(100vh - 400px);\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -39810,14 +39812,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "modal" }, [
-    _c("button", { staticClass: "cross-btn" }, [
-      _vm._v("\n        ( X )\n    ")
-    ]),
-    _vm._v(" "),
+  return _c("div", { staticClass: "bg-secondary w-100 h-100 row" }, [
     _c(
       "form",
       {
+        staticClass: "form-group w-100 h-100",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -39835,12 +39834,12 @@ var render = function() {
               expression: "text"
             }
           ],
-          staticClass: "text-body",
+          staticClass: "form-control ",
           attrs: {
             name: "",
             id: "",
-            cols: "30",
-            rows: "10",
+            cols: "",
+            rows: "",
             placeholder: "share your experience"
           },
           domProps: { value: _vm.text },
@@ -39854,7 +39853,18 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Submit")])
+        _c("button", { staticClass: "btn btn-danger m-5 w-25" }, [
+          _vm._v("\n      close\n    ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success m-5 w-25",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Submit")]
+        )
       ]
     )
   ])
@@ -40664,7 +40674,7 @@ var render = function() {
       _c("Nav"),
       _vm._v(" "),
       _vm.$store.state.Modal.open === false &&
-      _vm.$store.state.comment.Modal === false
+      _vm.$store.state.Posts.openPostsModal === false
         ? _c(
             "div",
             { staticClass: "user-info-container dashboard relative" },
@@ -40684,11 +40694,9 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("Avatar"),
-      _vm._v(" "),
       _vm.$store.state.comment.Modal === true ? _c("CommentModal") : _vm._e(),
       _vm._v(" "),
-      _vm.$store.state.Modal.open === true &&
+      _vm.$store.state.Posts.openPostsModal === true &&
       _vm.$store.state.closeButton.close === false
         ? _c("PostsModal")
         : _vm._e()
@@ -58597,7 +58605,8 @@ var state = {
   usersPosts: [],
   allPosts: [],
   key: 0,
-  disable: false
+  disable: false,
+  openPostsModal: false
 };
 var _default = {
   actions: _actions["default"],
@@ -58811,8 +58820,8 @@ var mutations = {
   loadModal: function loadModal(state) {
     state.openCountryModal = true;
   },
-  store_image: function store_image(state, file) {
-    state.file = file;
+  putPosts: function putPosts(state) {
+    state.openPostsModal = true;
   }
 };
 var _default = mutations;

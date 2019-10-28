@@ -10,7 +10,7 @@
             showFullModal() {
                 if(this.$route.path === '/visited'){
                     return this.$store.dispatch('AddCountry')
-                }else if(this.$route.path === '/dashboard'){
+                }else if(this.$route.path === '/'){
                     return this.$store.dispatch('AddPosts');
 
                 }else if(this.$route.path === '/wishList'){
