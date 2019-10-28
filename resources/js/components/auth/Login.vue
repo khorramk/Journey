@@ -1,5 +1,7 @@
 <template>
-        <form class="login-wrapper__form-login-contianer " v-on:submit.prevent="login">
+        <div class="container">
+            <div class="col-sm-8"></div>
+            <form class="login-wrapper__form-login-contianer bg-pale-green col-sm-4" v-on:submit.prevent="login">
             <div class="login-input-container">
                 <label for="email" class="login-email_label label-spacing">Email</label>
                 <input id="email" type="email" class="login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black"
@@ -24,6 +26,8 @@
                 <a class="submit-redirection__link btn-link-register" href="/register">Register</a>
             </div>
         </form>
+        </div>
+        
 </template>
 <script>
     export default {

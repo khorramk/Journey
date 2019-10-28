@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVisitedTable extends Migration
+class ModifyVisitedsColoumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateVisitedTable extends Migration
      */
     public function up()
     {
-        Schema::create('visited', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('country_name');
-            $table->string('images');
-            $table->unsignedInteger('users_id');
-            $table->timestamps();
+        //
+        Schema::table('visiteds', function (Blueprint $table) {
+            $table->string('images', 255)->change();
         });
     }
 
@@ -29,6 +26,6 @@ class CreateVisitedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visited');
+        //
     }
 }
