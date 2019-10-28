@@ -2299,7 +2299,6 @@ exports["default"] = void 0;
 //
 //
 //
-//
 var _default = {
   data: function data() {
     return {
@@ -2337,8 +2336,6 @@ var _default = {
       return listsorted;
     },
     submit: function submit() {
-      console.log('test');
-      debugger;
       var formData = new FormData();
       formData.append("image", this.$refs.fileInput.files[0]);
       formData.append("search", this.$data.search);
@@ -2347,18 +2344,6 @@ var _default = {
       }).then(function (resp) {
         return console.log(resp.data);
       });
-    },
-    onSelectFile: function onSelectFile(event) {
-      var formData = new FormData();
-      formData.append('image', event.target.files[0], "TESTING");
-      this.file = event.target.files[0];
-      console.log(this.file);
-      this.$store.dispatch('store_image_file', formData); //this is post CASUING SOME CONFUSION
-      // IT NEEDS TO BE REMOVED
-      //  axios.post('/api/visited', formData)
-      //    .then((resp) => { console.log(resp.data)
-      //       })
-      //     .catch((err) => console.log(err));
     }
   }
 };
@@ -2380,6 +2365,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+//
+//
+//
+//
 //
 //
 //
@@ -40036,8 +40025,7 @@ var render = function() {
               name: "file",
               id: "upload",
               placeholder: "add image"
-            },
-            on: { change: _vm.onSelectFile }
+            }
           }),
           _vm._v(" "),
           _c("input", {
@@ -40081,9 +40069,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                            " +
+                    "\n                    " +
                       _vm._s(country) +
-                      "\n                        "
+                      "\n                "
                   )
                 ]
               )
@@ -40119,124 +40107,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      staticClass:
-        "login-wrapper__form-login-contianer login-form bg-pale-green",
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.login($event)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "col-sm-8" }),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass:
+          "login-wrapper__form-login-contianer bg-pale-green col-sm-4",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.login($event)
+          }
         }
-      }
-    },
-    [
-      _c("div", { staticClass: "login-input-container flex flex-col " }, [
-        _c(
-          "label",
-          {
-            staticClass: "login-email_label label-spacing",
-            attrs: { for: "email" }
-          },
-          [_vm._v("Email")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+      },
+      [
+        _c("div", { staticClass: "login-input-container" }, [
+          _c(
+            "label",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.email,
-              expression: "email"
-            }
-          ],
-          staticClass:
-            "login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black",
-          attrs: {
-            id: "email",
-            type: "email",
-            name: "email",
-            value: "old email",
-            required: "",
-            autocomplete: "email",
-            autofocus: "",
-            placeholder: "Email"
-          },
-          domProps: { value: _vm.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "login-email_label label-spacing",
+              attrs: { for: "email" }
+            },
+            [_vm._v("Email")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
               }
-              _vm.email = $event.target.value
+            ],
+            staticClass:
+              "login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black",
+            attrs: {
+              id: "email",
+              type: "email",
+              name: "email",
+              value: "old email",
+              required: "",
+              autocomplete: "email",
+              autofocus: "",
+              placeholder: "Email"
+            },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
+              }
             }
-          }
-        }),
-        _vm._v(" "),
-        _vm.error
-          ? _c("div", { staticClass: "login-inputs-container__wrapper" }, [
-              _c(
-                "span",
-                { staticClass: "invalid-feedback", attrs: { role: "alert" } },
-                [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "login-inputs-container label-spacing",
-            attrs: { for: "password" }
-          },
-          [_vm._v("Password")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+          }),
+          _vm._v(" "),
+          _vm.error
+            ? _c("div", { staticClass: "login-inputs-container__wrapper" }, [
+                _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "label",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.password,
-              expression: "password"
-            }
-          ],
-          staticClass:
-            "login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black",
-          attrs: {
-            id: "password",
-            type: "password",
-            name: "password",
-            required: "",
-            autocomplete: "current-password",
-            placeholder: "Password"
-          },
-          domProps: { value: _vm.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "login-inputs-container label-spacing",
+              attrs: { for: "password" }
+            },
+            [_vm._v("Password")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password,
+                expression: "password"
               }
-              _vm.password = $event.target.value
+            ],
+            staticClass:
+              "login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black",
+            attrs: {
+              id: "password",
+              type: "password",
+              name: "password",
+              required: "",
+              autocomplete: "current-password",
+              placeholder: "Password"
+            },
+            domProps: { value: _vm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password = $event.target.value
+              }
             }
-          }
-        }),
+          }),
+          _vm._v(" "),
+          _vm.error
+            ? _c("div", { staticClass: "wrapper" }, [
+                _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
+                )
+              ])
+            : _vm._e()
+        ]),
         _vm._v(" "),
-        _vm.error
-          ? _c("div", { staticClass: "wrapper" }, [
-              _c(
-                "span",
-                { staticClass: "invalid-feedback", attrs: { role: "alert" } },
-                [_c("strong", [_vm._v(_vm._s(this.$data.fallback))])]
-              )
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ]
-  )
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {

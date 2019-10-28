@@ -3,19 +3,18 @@
         <div class="row">
             
            <form action="" autocomplete="on" class="w-100" @submit.prevent="submit" enctype='multipart/form-data'>
-               <input ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload" v-on:change="onSelectFile" placeholder="add image">
-               
+                <input ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload"  placeholder="add image">
+
                 <input type="search" v-model="search" name="name" id="" class="w-100 p-2" placeholder="type the country"/>
-           
-                   
-                        <div v-for="(country, i) in populate" :key="i" class="country-list">
-                            <div class="clickable-input country" @click="$data.search = country">
-                                {{country}}
-                            </div>
-                            
-                        </div>
-                         <button type="submit"></button>
-                        
+
+
+                <div v-for="(country, i) in populate" :key="i" class="country-list">
+                    <div class="clickable-input country" @click="$data.search = country">
+                        {{country}}
+                    </div>
+                </div>
+                <button type="submit"></button>
+                    
            </form>
         </div>
     </div>
@@ -59,9 +58,6 @@
                 return listsorted;
             },
             submit() {
-                console.log('test');
-                debugger;
-
                 var formData = new FormData();
                 formData.append("image", this.$refs.fileInput.files[0]);
                 formData.append("search", this.$data.search);
@@ -71,23 +67,7 @@
                     
                 }).then((resp)=> console.log(resp.data));
 
-            },
-            onSelectFile(event){
-                const formData = new FormData();
-                formData.append('image', event.target.files[0], "TESTING");
-                this.file = event.target.files[0];
-                console.log(this.file);
-                this.$store.dispatch('store_image_file', formData)
-          
-
-                //this is post CASUING SOME CONFUSION
-                // IT NEEDS TO BE REMOVED
-                //  axios.post('/api/visited', formData)
-                //    .then((resp) => { console.log(resp.data)
-                //       })
-                //     .catch((err) => console.log(err));
-
-            },
+            }
             
         },
     }
