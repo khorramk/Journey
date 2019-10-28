@@ -2,7 +2,7 @@
     <div class="dashboard-container bg-wood">
       
         <Nav />
-        <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.comment.Modal === false">
+        <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.Posts.openPostsModal === false">
             <!-- <Avatar/> -->
             <div v-for="(post, i) in $store.state.Posts.allPosts" :key="i">
                  <Posts  :post="post"/>
@@ -10,9 +10,9 @@
 
             <AddButton/>
         </div>
-          <Avatar/>
+          <!-- <Avatar/> -->
         <CommentModal v-if="$store.state.comment.Modal === true"/>
-        <PostsModal v-if="$store.state.Modal.open === true && $store.state.closeButton.close === false"/>
+        <PostsModal v-if="$store.state.Posts.openPostsModal === true && $store.state.closeButton.close === false"/>
     </div>
 </template>
 
