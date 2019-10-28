@@ -1,6 +1,6 @@
 <template>
-        <form class="login-wrapper__form-login-contianer login-form bg-pale-green" v-on:submit.prevent="login">
-            <div class="login-input-container flex flex-col ">
+        <form class="login-wrapper__form-login-contianer " v-on:submit.prevent="login">
+            <div class="login-input-container">
                 <label for="email" class="login-email_label label-spacing">Email</label>
                 <input id="email" type="email" class="login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black"
                  v-model="email" name="email" value="old email" required autocomplete="email" autofocus placeholder="Email">

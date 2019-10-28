@@ -2,10 +2,10 @@
 
 exports[`should render 1`] = `
 <form
-  class="login-wrapper__form-login-contianer login-form bg-pale-green"
+  class="login-wrapper__form-login-contianer "
 >
   <div
-    class="login-input-container flex flex-col "
+    class="login-input-container"
   >
     <label
       class="login-email_label label-spacing"

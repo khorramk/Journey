@@ -45,24 +45,6 @@ Vue {
         "render": [Function],
         "staticRenderFns": Array [],
       },
-      "Modal": Object {
-        "components": Object {
-          "CloseButton": Object {
-            "data": [Function],
-            "methods": Object {
-              "clickedToClose": [Function],
-            },
-            "render": [Function],
-            "staticRenderFns": Array [],
-          },
-        },
-        "data": [Function],
-        "methods": Object {
-          "submit": [Function],
-        },
-        "render": [Function],
-        "staticRenderFns": Array [],
-      },
       "Nav": Object {
         "data": [Function],
         "methods": Object {
@@ -106,6 +88,24 @@ Vue {
           [Function],
         ],
       },
+      "PostsModal": Object {
+        "components": Object {
+          "CloseButton": Object {
+            "data": [Function],
+            "methods": Object {
+              "clickedToClose": [Function],
+            },
+            "render": [Function],
+            "staticRenderFns": Array [],
+          },
+        },
+        "data": [Function],
+        "methods": Object {
+          "submit": [Function],
+        },
+        "render": [Function],
+        "staticRenderFns": Array [],
+      },
     },
     "data": [Function],
     "directives": Object {},
@@ -127,6 +127,7 @@ Vue {
   "$vnode": undefined,
   "_c": [Function],
   "_data": Object {
+    "disable": "",
     "likes": 0,
   },
   "_directInactive": false,
@@ -181,24 +182,6 @@ Vue {
           "render": [Function],
           "staticRenderFns": Array [],
         },
-        "Modal": Object {
-          "components": Object {
-            "CloseButton": Object {
-              "data": [Function],
-              "methods": Object {
-                "clickedToClose": [Function],
-              },
-              "render": [Function],
-              "staticRenderFns": Array [],
-            },
-          },
-          "data": [Function],
-          "methods": Object {
-            "submit": [Function],
-          },
-          "render": [Function],
-          "staticRenderFns": Array [],
-        },
         "Nav": Object {
           "data": [Function],
           "methods": Object {
@@ -242,6 +225,24 @@ Vue {
             [Function],
           ],
         },
+        "PostsModal": Object {
+          "components": Object {
+            "CloseButton": Object {
+              "data": [Function],
+              "methods": Object {
+                "clickedToClose": [Function],
+              },
+              "render": [Function],
+              "staticRenderFns": Array [],
+            },
+          },
+          "data": [Function],
+          "methods": Object {
+            "submit": [Function],
+          },
+          "render": [Function],
+          "staticRenderFns": Array [],
+        },
       },
       "data": [Function],
       "directives": Object {},
@@ -263,6 +264,7 @@ Vue {
     "$vnode": undefined,
     "_c": [Function],
     "_data": Object {
+      "disable": "",
       "likes": 0,
     },
     "_directInactive": false,
@@ -280,6 +282,7 @@ Vue {
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
+    "disable": "",
     "likes": 0,
     "logout": [Function],
   },
@@ -289,6 +292,7 @@ Vue {
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],
+  "disable": "",
   "likes": 0,
   "logout": [Function],
 }

@@ -27,24 +27,6 @@ Vue {
         "render": [Function],
         "staticRenderFns": Array [],
       },
-      "Modal": Object {
-        "components": Object {
-          "CloseButton": Object {
-            "data": [Function],
-            "methods": Object {
-              "clickedToClose": [Function],
-            },
-            "render": [Function],
-            "staticRenderFns": Array [],
-          },
-        },
-        "data": [Function],
-        "methods": Object {
-          "submit": [Function],
-        },
-        "render": [Function],
-        "staticRenderFns": Array [],
-      },
       "Nav": Object {
         "data": [Function],
         "methods": Object {
@@ -55,10 +37,29 @@ Vue {
         "staticRenderFns": Array [],
       },
       "Search": Object {
+        "data": [Function],
+        "props": Object {
+          "countryList": Object {
+            "default": Array [],
+            "type": [Function],
+          },
+        },
         "render": [Function],
-        "staticRenderFns": Array [
-          [Function],
-        ],
+        "staticRenderFns": Array [],
+      },
+      "WishListModal": Object {
+        "computed": Object {
+          "populate": [Function],
+        },
+        "data": [Function],
+        "methods": Object {
+          "inputslist": [Function],
+          "onSelectFile": [Function],
+          "submit": [Function],
+        },
+        "mounted": [Function],
+        "render": [Function],
+        "staticRenderFns": Array [],
       },
     },
     "data": [Function],
@@ -142,24 +143,6 @@ Vue {
           "render": [Function],
           "staticRenderFns": Array [],
         },
-        "Modal": Object {
-          "components": Object {
-            "CloseButton": Object {
-              "data": [Function],
-              "methods": Object {
-                "clickedToClose": [Function],
-              },
-              "render": [Function],
-              "staticRenderFns": Array [],
-            },
-          },
-          "data": [Function],
-          "methods": Object {
-            "submit": [Function],
-          },
-          "render": [Function],
-          "staticRenderFns": Array [],
-        },
         "Nav": Object {
           "data": [Function],
           "methods": Object {
@@ -170,10 +153,29 @@ Vue {
           "staticRenderFns": Array [],
         },
         "Search": Object {
+          "data": [Function],
+          "props": Object {
+            "countryList": Object {
+              "default": Array [],
+              "type": [Function],
+            },
+          },
           "render": [Function],
-          "staticRenderFns": Array [
-            [Function],
-          ],
+          "staticRenderFns": Array [],
+        },
+        "WishListModal": Object {
+          "computed": Object {
+            "populate": [Function],
+          },
+          "data": [Function],
+          "methods": Object {
+            "inputslist": [Function],
+            "onSelectFile": [Function],
+            "submit": [Function],
+          },
+          "mounted": [Function],
+          "render": [Function],
+          "staticRenderFns": Array [],
         },
       },
       "data": [Function],

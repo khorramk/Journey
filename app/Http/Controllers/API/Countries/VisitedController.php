@@ -28,9 +28,10 @@ class VisitedController extends Controller
     {
         // dd($request->file('image'));
         //store the  countrie
+        // dd($request->search);
         $visited = new Visited;
         //need to fix the search string and put in to country_name
-        $visited->country_name = $request->file('search');
+        $visited->country_name = $request->search;
         $file = $request->file('image');
         $image = Storage::disk('public')->putFile('images', $file);
         $visited->images = $image;
