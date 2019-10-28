@@ -1992,6 +1992,36 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import Likes from './Likes';
 var _default2 = {
   data: function data() {
@@ -39665,132 +39695,109 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", [
-    _c("li", { staticClass: "posts-block overflow-hidden shadow-lg" }, [
-      _c("div", { staticClass: "font-bold text-xl mb-2" }, [
-        _vm._v(
-          "\n                " +
-            _vm._s(_vm.$props.post.posts) +
-            "\n            "
-        )
-      ]),
+  return _c("li", { staticClass: "row mb-3 " }, [
+    _c("div", { staticClass: "card w-100", staticStyle: { width: "18rem" } }, [
+      _c("img", {
+        staticClass: "card-img-top",
+        attrs: { src: "", alt: "..." }
+      }),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submit(_vm.$props.post.id)
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v(_vm._s(_vm.$props.post.posts))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "Some quick example text to build on the card title and make up the bulk of the card's content."
+          )
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+          _vm._v("Go somewhere")
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit(_vm.$props.post.id)
+              }
             }
-          }
-        },
-        [
-          _c(
-            "button",
-            {
-              attrs: {
-                type: "submit",
-                disabled: _vm.$store.state.Posts.disable
+          },
+          [
+            _c(
+              "button",
+              {
+                attrs: {
+                  type: "submit",
+                  disabled: _vm.$store.state.Posts.disable
+                },
+                on: {
+                  click: function($event) {
+                    _vm.liked += 1
+                  }
+                }
               },
-              on: {
-                click: function($event) {
-                  _vm.liked += 1
-                }
+              [
+                _c("img", {
+                  staticClass: "like-btn",
+                  attrs: {
+                    src:
+                      "https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", {
+                  domProps: { textContent: _vm._s(_vm.liked || _vm.post.likes) }
+                })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.flashModal(_vm.$props.post.id)
               }
-            },
-            [
-              _c("img", {
-                staticClass: "like-btn",
-                attrs: {
-                  src:
-                    "https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"
-                }
-              }),
-              _vm._v(" "),
-              _c("span", {
-                domProps: { textContent: _vm._s(_vm.liked || _vm.post.likes) }
-              })
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          on: {
-            click: function($event) {
-              return _vm.flashModal(_vm.$props.post.id)
             }
-          }
-        },
-        [
-          _c(
-            "svg",
-            {
-              staticClass: "comment-btn",
-              staticStyle: { fill: "#000000" },
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                x: "0px",
-                y: "0px",
-                width: "64",
-                height: "64",
-                viewBox: "0 0 50 50"
-              }
-            },
-            [
-              _c("path", {
+          },
+          [
+            _c(
+              "svg",
+              {
+                staticClass: "comment-btn",
+                staticStyle: { fill: "#000000" },
                 attrs: {
-                  d:
-                    "M 25 4.070313 C 12.367188 4.070313 2.070313 12.921875 2.070313 24 C 2.070313 30.429688 5.59375 36.027344 11.003906 39.6875 C 10.996094 39.902344 11.011719 40.25 10.730469 41.296875 C 10.378906 42.589844 9.671875 44.414063 8.238281 46.46875 L 7.21875 47.929688 L 9 47.929688 C 15.171875 47.929688 18.742188 43.90625 19.296875 43.261719 C 21.132813 43.691406 23.023438 43.929688 25 43.929688 C 37.632813 43.929688 47.929688 35.078125 47.929688 24 C 47.929688 12.921875 37.632813 4.070313 25 4.070313 Z M 25 5.929688 C 36.769531 5.929688 46.070313 14.078125 46.070313 24 C 46.070313 33.921875 36.769531 42.070313 25 42.070313 C 22.960938 42.070313 21.039063 41.875 19.234375 41.402344 L 18.65625 41.25 L 18.277344 41.714844 C 18.277344 41.714844 15.390625 44.972656 10.78125 45.757813 C 11.617188 44.25 12.234375 42.84375 12.519531 41.78125 C 12.921875 40.300781 12.929688 39.300781 12.929688 39.300781 L 12.929688 38.789063 L 12.5 38.515625 C 7.21875 35.15625 3.929688 29.957031 3.929688 24 C 3.929688 14.078125 13.230469 5.929688 25 5.929688 Z M 15 22 C 13.894531 22 13 22.894531 13 24 C 13 25.105469 13.894531 26 15 26 C 16.105469 26 17 25.105469 17 24 C 17 22.894531 16.105469 22 15 22 Z M 25 22 C 23.894531 22 23 22.894531 23 24 C 23 25.105469 23.894531 26 25 26 C 26.105469 26 27 25.105469 27 24 C 27 22.894531 26.105469 22 25 22 Z M 35 22 C 33.894531 22 33 22.894531 33 24 C 33 25.105469 33.894531 26 35 26 C 36.105469 26 37 25.105469 37 24 C 37 22.894531 36.105469 22 35 22 Z"
+                  xmlns: "http://www.w3.org/2000/svg",
+                  x: "0px",
+                  y: "0px",
+                  width: "64",
+                  height: "64",
+                  viewBox: "0 0 50 50"
                 }
-              })
-            ]
-          )
-        ]
-      )
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M 25 4.070313 C 12.367188 4.070313 2.070313 12.921875 2.070313 24 C 2.070313 30.429688 5.59375 36.027344 11.003906 39.6875 C 10.996094 39.902344 11.011719 40.25 10.730469 41.296875 C 10.378906 42.589844 9.671875 44.414063 8.238281 46.46875 L 7.21875 47.929688 L 9 47.929688 C 15.171875 47.929688 18.742188 43.90625 19.296875 43.261719 C 21.132813 43.691406 23.023438 43.929688 25 43.929688 C 37.632813 43.929688 47.929688 35.078125 47.929688 24 C 47.929688 12.921875 37.632813 4.070313 25 4.070313 Z M 25 5.929688 C 36.769531 5.929688 46.070313 14.078125 46.070313 24 C 46.070313 33.921875 36.769531 42.070313 25 42.070313 C 22.960938 42.070313 21.039063 41.875 19.234375 41.402344 L 18.65625 41.25 L 18.277344 41.714844 C 18.277344 41.714844 15.390625 44.972656 10.78125 45.757813 C 11.617188 44.25 12.234375 42.84375 12.519531 41.78125 C 12.921875 40.300781 12.929688 39.300781 12.929688 39.300781 L 12.929688 38.789063 L 12.5 38.515625 C 7.21875 35.15625 3.929688 29.957031 3.929688 24 C 3.929688 14.078125 13.230469 5.929688 25 5.929688 Z M 15 22 C 13.894531 22 13 22.894531 13 24 C 13 25.105469 13.894531 26 15 26 C 16.105469 26 17 25.105469 17 24 C 17 22.894531 16.105469 22 15 22 Z M 25 22 C 23.894531 22 23 22.894531 23 24 C 23 25.105469 23.894531 26 25 26 C 26.105469 26 27 25.105469 27 24 C 27 22.894531 26.105469 22 25 22 Z M 35 22 C 33.894531 22 33 22.894531 33 24 C 33 25.105469 33.894531 26 35 26 C 36.105469 26 37 25.105469 37 24 C 37 22.894531 36.105469 22 35 22 Z"
+                  }
+                })
+              ]
+            )
+          ]
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "px-6 py-4" }, [
-      _c(
-        "span",
-        {
-          staticClass:
-            "inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-        },
-        [_vm._v("#photography")]
-      ),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-        },
-        [_vm._v("#travel")]
-      ),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
-        },
-        [_vm._v("#winter")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
