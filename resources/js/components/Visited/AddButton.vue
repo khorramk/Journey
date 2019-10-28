@@ -12,8 +12,9 @@
                     return this.$store.dispatch('AddCountry')
                 }else if(this.$route.path === '/dashboard'){
                     return this.$store.dispatch('AddPosts');
-                }else{
-                    return 0;
+
+                }else if(this.$route.path === '/wishList'){
+                    return this.store.dispatch('addWishes');
                 }
 
             }

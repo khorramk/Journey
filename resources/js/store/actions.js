@@ -43,6 +43,9 @@ const actions = {
     },
     store_image_file: (context, file)=> {
         context.commit('store_image', file)
+    },
+    AddPosts: (context)=> {
+        context.commit('putPosts')
     }
 }
 export default actions;

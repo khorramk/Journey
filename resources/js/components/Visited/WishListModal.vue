@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <div class="row">
-            
            <form action="" autocomplete="on" class="w-100" @submit.prevent="submit" enctype='multipart/form-data'>
                 <input ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload"  placeholder="add image">
 
@@ -26,7 +25,6 @@
             return {
                 fetchCountryWrapperObject: [],
                 search: ''
-            
             }
         },
         mounted() {
@@ -41,10 +39,7 @@
                       return countries.name;
                 });
                 return this.inputslist(this.$data.search, name).filter((e)=> e !== null);
-            },
-            
-
-            
+            }
         },
         methods: {
              inputslist(inp, arr) {
@@ -65,9 +60,8 @@
                    
                         value: this.$data.search,
                     
-                }).then((resp)=> console.log(resp.data));
-
-            }
+                }).then(()=> window.location.href = '/visited')
+            },
             
         },
     }

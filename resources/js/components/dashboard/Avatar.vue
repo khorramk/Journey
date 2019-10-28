@@ -1,6 +1,6 @@
 <template>
     <picture class="avatar-container__avatar-picture " >
-        <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes="" width="75" height="75" srcset="" placeholder="pic" @click="openSelection">
+        <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes=""  srcset="" placeholder="pic" @click="openSelection">
         <!-- <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop"> -->
             <button class="remove-btn" v-on:click.prevent="removeSelection">
                ( X )

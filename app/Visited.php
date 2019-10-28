@@ -26,7 +26,7 @@ class Visited extends Model
         'id' => 'int',
         'country_name'       => 'string',
         'users_id'   => 'int',
-        'images'     => 'int',
+        'images'     => 'string'
     ];
     /**
      * The validation rules.

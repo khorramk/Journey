@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use \App\Visited;
+use Auth;
 class VisitedController extends Controller
 {
     /**
@@ -16,6 +17,11 @@ class VisitedController extends Controller
     public function index()
     {
         //
+        
+        
+        $visited = Visited::where('users_id', Auth::id())->get();
+        return ['visited'=> $visited];
+
     }
 
     /**
@@ -35,7 +41,7 @@ class VisitedController extends Controller
         $file = $request->file('image');
         $image = Storage::disk('public')->putFile('images', $file);
         $visited->images = $image;
-        $visited->users_id = 1;
+        $visited->users_id = Auth::id();
         $visited->save();
     }
 
