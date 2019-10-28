@@ -8,6 +8,7 @@ import closeButton from './modules/closeButton';
 import comment from './modules/comment';
 import Country from './modules/Country';
 import visited from './modules/visited';
+import WishList from './modules/WishList';
 Vue.use(Vuex);
 
 
@@ -22,7 +23,8 @@ const store = new Vuex.Store({
         closeButton,
         comment,
         Country,
-        visited
+        visited,
+        WishList,
     },
 
 })

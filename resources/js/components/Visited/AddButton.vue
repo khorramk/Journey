@@ -13,8 +13,8 @@
                 }else if(this.$route.path === '/'){
                     return this.$store.dispatch('AddPosts');
 
-                }else if(this.$route.path === '/wishList'){
-                    return this.store.dispatch('addWishes');
+                }else if(this.$route.path === '/wishlist'){
+                    return this.$store.dispatch('addWishes');
                 }
 
             }

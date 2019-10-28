@@ -40,7 +40,8 @@ Auth::routes();
 Route::prefix('api')->middleware('auth')->group(function () {
     Route::resource('/posts', 'PostsController');
     Route::resource('/avatars', 'api\SocialBlock\AvatarController');
-    Route::resource('visited', 'api\Countries\VisitedController');
+    Route::resource('/visited', 'api\Countries\VisitedController');
+    Route::resource('/wishlist', 'api\Countries\WishListController');
 });
 
 

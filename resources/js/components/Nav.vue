@@ -1,7 +1,7 @@
 <template>
 
-        <ul class="nav w-100">
-            <li class="nav-item w-25">
+        <ul class="nav w-100 navigation">
+            <li class="nav-item w-25 border border-dark">
 
                 <a class="nav-link dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <img src="https://img.icons8.com/material/24/000000/home--v5.png"  class="w-100 " alt="dashboard" @click="popLogOutBtn">
@@ -14,13 +14,13 @@
                     </form>
                 </div>
             </li>
-            <li class="nav-item w-25">
+            <li class="nav-item w-25 border border-dark">
                 <router-link class="nav-link" to="/history"><img class="w-100" src="https://img.icons8.com/cotton/64/000000/time-machine.png" alt="history"></router-link>
             </li>
-            <li class="nav-item  w-25">
+            <li class="nav-item  w-25 border border-dark">
                 <router-link class="nav-link" to="/visited"><img class="w-100" src="https://img.icons8.com/pastel-glyph/64/000000/location-update.png" alt="visited"></router-link>
             </li>
-            <li class="nav-item  w-25">
+            <li class="nav-item  w-25 border border-dark">
                 <router-link class="nav-link" to="/wishlist"><img class="w-100" src="https://img.icons8.com/material-sharp/24/000000/bookmark-ribbon.png" alt="wishlist"></router-link>
             </li>
         </ul>
@@ -75,8 +75,7 @@
         background: white;
     }
      .navigation{
-        @include nav-pos();
-        @include nav-size();
+       background-color: #BBC8CA;
     }
     @mixin quarter-width_size{
         width: 40px;

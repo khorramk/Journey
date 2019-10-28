@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
            <form action="" autocomplete="on" class="w-100" @submit.prevent="submit" enctype='multipart/form-data'>
-                <input ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload"  placeholder="add image">
+                <input v-if="$store.state.WishList.open === false" ref="fileInput" class="w-100 p-2"  type="file"  name="file" id="upload"  placeholder="add image">
 
                 <input type="search" v-model="search" name="name" id="" class="w-100 p-2" placeholder="type the country"/>
 
-
+                
                 <div v-for="(country, i) in populate" :key="i" class="country-list">
                     <div class="clickable-input country" @click="$data.search = country">
                         {{country}}
@@ -53,6 +53,8 @@
                 return listsorted;
             },
             submit() {
+                if(this.$route.path === '/visited'){
+                    debugger;
                 var formData = new FormData();
                 formData.append("image", this.$refs.fileInput.files[0]);
                 formData.append("search", this.$data.search);
@@ -61,7 +63,17 @@
                         value: this.$data.search,
                     
                 }).then(()=> window.location.href = '/visited')
-            },
+                }else if( this.$route.path === '/wishlist'){
+                    debugger;
+                    axios.post('/api/wishList', {
+                        value: this.$data.search
+                    }).then(()=> {
+                        window.location.href = '/wishlist';
+                    })
+                }else{
+                    return 0;
+                }
+            }
             
         },
     }

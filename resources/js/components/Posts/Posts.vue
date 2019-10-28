@@ -31,16 +31,15 @@
         
             <li class="row mb-3 " >
                 <div class="card w-100" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="...">
+                   <Avatar/>
                     <div class="card-body">
-                    <h5 class="card-title">{{$props.post.posts}}</h5>
+                    <h5 class="card-title">{{$props.post.posts || $props.post}}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                     <form v-on:submit.prevent="submit($props.post.id)">
                 <!-- increments the like -->
              <button type="submit" @click="liked += 1" :disabled="$store.state.Posts.disable">
                     <!-- show the filtred likes upon increment -->
-                         <img class="like-btn" src="https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"/>
+                         <img class="like-btn position-absolute" src="https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"/>
                          <span v-text="liked || post.likes"></span>
                 </button>
             </form>
@@ -141,13 +140,12 @@ import Avatar from '../dashboard/Avatar';
    @mixin like-btn_size{
        width: 50px;
        height: 50px;
-       margin: 0 0 0 20px;
+       margin: 0 20px 0 20px;
 
    }
     @mixin like-btn_pos{
         right: 0;
         bottom: 0;
-        position: absolute;
         z-index: 3;
     }
     .like-btn{
@@ -157,7 +155,7 @@ import Avatar from '../dashboard/Avatar';
     @mixin comment-btn_size{
         width: 50px;
         height: 50px;
-        margin: 0 60px 0 0;
+        margin: 0 80px 0 0;
     }
     @mixin comment-btn_vis{
         right: 0;

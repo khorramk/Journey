@@ -46,6 +46,9 @@ const actions = {
     },
     AddPosts: (context)=> {
         context.commit('putPosts')
+    },
+    addWishes: (context)=> {
+        context.commit('openWishes');
     }
 }
 export default actions;

@@ -1,25 +1,33 @@
 <template>
     <div class="">
         <Nav></Nav>
-        <div class="container-for-WishList" v-if="$store.state.Modal.open === false">
-            <Search/>
+        <div class="container-for-WishList" v-if="$store.state.WishList.open === false">
+            <!-- <Search/> -->
             <AddButton/>
             <div class="container">
-                <li v-for="(wish, i) in wishList" :key="i">
-                    <div class="card">
-                        {{i}}
+                <div class="row  m-2" v-for="(wish, i) in wishList" :key="i">
+                    <div class="bg-grey card p-2 w-100 text-center ">
+                            <h4 clas="text-center">
+                                {{wish.country_name}}
+                            </h4>  
+                            <form @submit.prevent="remove">
+                                <button class="btn btn-danger float-left" type="submit">
+                                    close
+                                    </button>    
+                            </form>   
                     </div>
-                </li>
+                </div>
             </div>
         </div>
-        <CountryModal v-if="$store.state.Modal.open && $store.state.Modal.close === false"/>
+        <WishListModal v-if="$store.state.WishList.open"/>
     </div>
 </template>
 <script>
 import Avatar from '../dashboard/Avatar';
-import Search from '../search/Search';
+// import Search from '../search/Search';
 import AddButton from '../Visited/AddButton';
-// import WishListModal from './WishListModal';
+import WishListModal from './WishListModal';
+// import CountryModal from '../CountryModal';
 import Nav from '../Nav';
     export default {
         data() {
@@ -30,14 +38,28 @@ import Nav from '../Nav';
         components: {
             Nav,
             Avatar,
-            Search,
+            // Search,
             AddButton,
-            // WishListModal
+            WishListModal,
+            // CountryModal
 
+        },
+        mounted () {
+            axios.get('/api/wishlist').then((resp)=> {
+                console.log(resp);
+                this.$data.wishList = resp.data.wishes;
+            });
+        },
+        methods: {
+            remove() {
+                axios.delete('/api/wishlist').then(()=> window.location.href= '/wishlist')
+            }
         },
     }
 </script>
 
 <style lang="scss" scoped>
-
+    .bg-grey{
+        background-color: #C4C4C4;
+    }
 </style>

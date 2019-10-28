@@ -1,8 +1,8 @@
 <template>
-    <div class="dashboard-container bg-wood">
+    <div class="dashboard-container">
       
         <Nav />
-        <div class="user-info-container dashboard relative" v-if="$store.state.Modal.open === false && $store.state.Posts.openPostsModal === false">
+        <div class="user-info-container bg-wood" v-if="$store.state.Modal.open === false && $store.state.Posts.openPostsModal === false">
             <!-- <Avatar/> -->
             <div v-for="(post, i) in $store.state.Posts.allPosts" :key="i">
                  <Posts  :post="post"/>
@@ -63,9 +63,8 @@ import CommentModal from '../CommentsBlock/CommentModal';
         background: rgb(66, 51, 51);
 
     }
-    .dashboard{
-        @include dashboard-size();
-        @include dashboard-vis();
+    .bg-wood{
+        background-color: #6F6868;
     }
 </style>
 

@@ -26,7 +26,7 @@ Route::apiResources([
 
     'comments' => 'api\SocialBlock\CommentsController',
     
-    'wishList' => 'api\Countries\WishListController',
+    
   //  'avatars' => 'api\SocialBlock\AvatarController',
     'likes' => 'api\SocialBlock\LikesController',
     'reply' => 'API\SocialBlock\ReplyController'
