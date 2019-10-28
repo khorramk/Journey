@@ -40,7 +40,7 @@ class PostsController extends Controller
         $post = new Posts;
         $post->posts = $request->input('text');
         $post->user_id = Auth::id();
-        $post->likes = 0;
+        $post->likes_id = 0;
         $post->save();
 
 
