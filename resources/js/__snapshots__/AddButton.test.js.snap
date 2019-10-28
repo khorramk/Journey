@@ -2,7 +2,7 @@
 
 exports[`should render 1`] = `
 <button
-  class="plus-btn text-center"
+  class="plus-btn"
 >
   
     +
