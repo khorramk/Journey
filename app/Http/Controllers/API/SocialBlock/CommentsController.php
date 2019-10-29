@@ -30,7 +30,7 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         //
-       dd($request->all());
+    
        $comment = new Comments;
        $comment->comment = $request->input('comments');
        $comment->posts_id = $request->input('postID')['id'];

@@ -1,31 +1,33 @@
 <template>
-        <div class="container">
+        <div class="container bg-success">
             <div class="col-sm-8"></div>
-            <form class="login-wrapper__form-login-contianer bg-pale-green col-sm-4" v-on:submit.prevent="login">
-            <div class="login-input-container">
-                <label for="email" class="login-email_label label-spacing">Email</label>
-                <input id="email" type="email" class="login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black"
+            <form class="login-wrapper__form-login-contianer d-flex flex-column" v-on:submit.prevent="login">
+            <div class="login-input-container col-11">
+                <label for="email" class="login-email_label">Email</label>
+                <input id="email" type="email" class="login-inputs-container__login-email-input form-control pr-3 pl-3 mr-4"
                  v-model="email" name="email" value="old email" required autocomplete="email" autofocus placeholder="Email">
                 <div v-if="error"  class="login-inputs-container__wrapper">
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ this.$data.fallback }}</strong>
                     </span>
                 </div>
-                <label for="password" class="login-inputs-container label-spacing">Password</label>
-                <input id="password" v-model="password" type="password" class="login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black" name="password" required autocomplete="current-password" placeholder="Password">
+                <label for="password" class="label">Password</label>
+                <input id="password" v-model="password" type="password" class="login-input-passsword form-control" name="password" required autocomplete="current-password" placeholder="Password">
                 <div  v-if="error" class="wrapper">
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ this.$data.fallback }}</strong>
                     </span>
                 </div>
+               
             </div>
             <div class="btn-submits-container relative">
-                <button type="submit" class="submit-redirection__btn-login btn-submit-login  ">  
+                <button type="submit" class="border border-secondary btn btn-login float-right p-4 submit-redirection__btn-login pr-3 pl-3 mr-4">  
                 login
                 </button>
-                <a class="submit-redirection__link btn-link-register" href="/register">Register</a>
+                <a class="submit-redirection__link btn btn-link-register float-left" href="/register">Register</a>
             </div>
         </form>
+    
         </div>
         
 </template>
@@ -52,6 +54,9 @@
 
                     })
             }
+        },
+        mounted () {
+            console.log('test');
         },
     }
 </script>

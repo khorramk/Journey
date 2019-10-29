@@ -1818,8 +1818,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-//
-//
+
+var _Avatar = _interopRequireDefault(__webpack_require__(/*! ../dashboard/Avatar */ "./resources/js/components/dashboard/Avatar.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 //
 //
 //
@@ -1854,7 +1857,8 @@ var _default = {
     return {
       key: '',
       comments: '',
-      liked: ''
+      liked: 0,
+      disable: false
     };
   },
   mounted: function mounted() {
@@ -1863,6 +1867,16 @@ var _default = {
     axios.get("/api/comments/".concat(this.$store.state.comment.postID.id)).then(function (resp) {
       return _this.$data.comments = resp.data.comments;
     });
+  },
+  methods: {
+    submit: function submit() {
+      axios.post('/api/comments').then(function () {
+        return console.log('success');
+      });
+    }
+  },
+  components: {
+    Avatar: _Avatar["default"]
   }
 };
 exports["default"] = _default;
@@ -2476,6 +2490,8 @@ exports["default"] = void 0;
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -2499,6 +2515,9 @@ var _default = {
         _this.$data.fallback = 'invalid auth';
       });
     }
+  },
+  mounted: function mounted() {
+    console.log('test');
   }
 };
 exports["default"] = _default;
@@ -39439,7 +39458,7 @@ var render = function() {
     [
       _c("Comments"),
       _vm._v(" "),
-      _c("div", { staticClass: "add-comment-block" }, [
+      _c("div", { staticClass: "w-100 h-100 bg-secondary" }, [
         _c(
           "button",
           {
@@ -39455,6 +39474,7 @@ var render = function() {
         _c(
           "form",
           {
+            staticClass: "form-group",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -39472,6 +39492,7 @@ var render = function() {
                   expression: "text"
                 }
               ],
+              staticClass: "form-control",
               attrs: { name: "commentbody", id: "", cols: "30", rows: "10" },
               domProps: { value: _vm.text },
               on: {
@@ -39484,7 +39505,14 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("button", { attrs: { type: "submit" } }, [_vm._v("submit")])
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary float-right m-5",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("submit")]
+            )
           ]
         )
       ])
@@ -39520,14 +39548,20 @@ var render = function() {
       _vm._l(_vm.comments, function(comment, i) {
         return _c(
           "li",
-          { key: i, staticClass: "comments-block overflow-hidden shadow-lg" },
+          { key: i, staticClass: " card w-100" },
           [
-            _c("div", { staticClass: "font-bold text-xl mb-2" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(comment.comment) +
-                  "\n                "
-              )
+            _c("Avatar"),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(comment.comment))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "Some quick example text to build on the card title and make up the bulk of the card's content."
+                )
+              ])
             ]),
             _vm._v(" "),
             _vm._m(0, true),
@@ -39538,7 +39572,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.submit(_vm.$props.post.id)
+                    return _vm.submit()
                   }
                 }
               },
@@ -39546,7 +39580,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    attrs: { type: "submit", disabled: "$props.disable" },
+                    attrs: { type: "submit", disabled: _vm.disable },
                     on: {
                       click: function($event) {
                         _vm.liked += 1
@@ -39563,6 +39597,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("span", {
+                      staticClass: "absolute float-right",
                       domProps: {
                         textContent: _vm._s(_vm.liked || comment.likes)
                       }
@@ -39570,27 +39605,9 @@ var render = function() {
                   ]
                 )
               ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.flashModal(_vm.$props.post.id)
-                  }
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://img.icons8.com/material-two-tone/24/000000/reply-arrow.png"
-                  }
-                })
-              ]
             )
-          ]
+          ],
+          1
         )
       }),
       0
@@ -40341,14 +40358,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container bg-success" }, [
     _c("div", { staticClass: "col-sm-8" }),
     _vm._v(" "),
     _c(
       "form",
       {
-        staticClass:
-          "login-wrapper__form-login-contianer bg-pale-green col-sm-4",
+        staticClass: "login-wrapper__form-login-contianer d-flex flex-column",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -40357,13 +40373,10 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "login-input-container" }, [
+        _c("div", { staticClass: "login-input-container col-11" }, [
           _c(
             "label",
-            {
-              staticClass: "login-email_label label-spacing",
-              attrs: { for: "email" }
-            },
+            { staticClass: "login-email_label", attrs: { for: "email" } },
             [_vm._v("Email")]
           ),
           _vm._v(" "),
@@ -40377,7 +40390,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black",
+              "login-inputs-container__login-email-input form-control pr-3 pl-3 mr-4",
             attrs: {
               id: "email",
               type: "email",
@@ -40409,14 +40422,9 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "login-inputs-container label-spacing",
-              attrs: { for: "password" }
-            },
-            [_vm._v("Password")]
-          ),
+          _c("label", { staticClass: "label", attrs: { for: "password" } }, [
+            _vm._v("Password")
+          ]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -40427,8 +40435,7 @@ var render = function() {
                 expression: "password"
               }
             ],
-            staticClass:
-              "login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black",
+            staticClass: "login-input-passsword form-control",
             attrs: {
               id: "password",
               type: "password",
@@ -40473,7 +40480,8 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "submit-redirection__btn-login btn-submit-login  ",
+          staticClass:
+            "border border-secondary btn btn-login float-right p-4 submit-redirection__btn-login pr-3 pl-3 mr-4",
           attrs: { type: "submit" }
         },
         [_vm._v("  \n        login\n        ")]
@@ -40482,7 +40490,8 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "submit-redirection__link btn-link-register",
+          staticClass:
+            "submit-redirection__link btn btn-link-register float-left",
           attrs: { href: "/register" }
         },
         [_vm._v("Register")]
@@ -40770,7 +40779,7 @@ var render = function() {
     _c("label", { attrs: { for: "file" } }, [
       _c("img", {
         attrs: {
-          src: this.$store.state.path,
+          src: this.$store.state.avatar.path,
           width: "100",
           height: "100",
           alt: ""
@@ -40807,7 +40816,7 @@ var render = function() {
     [
       _c("Nav"),
       _vm._v(" "),
-      _vm.$store.state.Modal.open === false &&
+      _vm.$store.state.comment.Modal === false &&
       _vm.$store.state.Posts.openPostsModal === false
         ? _c(
             "div",
@@ -57064,6 +57073,9 @@ var app = new Vue({
   components: {
     Login: _Login["default"],
     Register: _Register["default"]
+  },
+  mounted: function mounted() {
+    console.log('test');
   },
   store: _store["default"]
 });
