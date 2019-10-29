@@ -70,6 +70,9 @@ const app = new Vue({
         Login,
        Register
     },
+    mounted () {
+        console.log('test');
+    },
     store
 
 });

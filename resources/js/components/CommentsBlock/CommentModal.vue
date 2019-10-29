@@ -1,11 +1,11 @@
 <template>
     <div>
         <Comments/>
-        <div class="add-comment-block">
+        <div class="w-100 h-100 bg-secondary">
             <button @click="$store.dispatch('closeCommentModal')">(x)</button>
-            <form v-on:submit.prevent="submit">
-                <textarea name="commentbody" v-model="text" id="" cols="30" rows="10"></textarea>
-                <button type="submit">submit</button>
+            <form class="form-group" v-on:submit.prevent="submit">
+                <textarea class="form-control" name="commentbody" v-model="text" id="" cols="30" rows="10"></textarea>
+                <button class="btn btn-primary float-right m-5" type="submit">submit</button>
             </form>
         </div>
 

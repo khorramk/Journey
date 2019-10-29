@@ -1,45 +1,53 @@
 <template>
     <div>
         <ul>
-            <li class="comments-block overflow-hidden shadow-lg" v-for="(comment, i) in  comments" :key="i">
-                <!-- <Avatar/> -->
-                    <div class="font-bold text-xl mb-2">
-                        {{comment.comment}}
+            <li class=" card w-100" v-for="(comment, i) in  comments" :key="i">
+                     <Avatar/>
+                    <div class="card-body">
+                    <h5 class="card-title">{{comment.comment}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
-
                 <div class="px-6 py-4">
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
 
                 </div>
-                <form v-on:submit.prevent="submit($props.post.id)">
+                <form v-on:submit.prevent="submit()">
                     <!-- increments the like -->
-                    <button type="submit" @click="liked += 1" disabled="$props.disable">
+                    <button type="submit" @click="liked += 1" :disabled="disable">
                         <!-- show the filtred likes upon increment -->
                             <img class="like-btn" src="https://img.icons8.com/pastel-glyph/64/000000/facebook-like.png"/>
-                            <span v-text="liked || comment.likes"></span>
+                            <span  class="absolute float-right" v-text="liked || comment.likes"></span>
                     </button>
                 </form>
-                <button @click="flashModal($props.post.id)">
-                    <img src="https://img.icons8.com/material-two-tone/24/000000/reply-arrow.png">
-                </button>
+                
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import Avatar from '../dashboard/Avatar';
     export default {
         data() {
             return {
                key : '',
                comments: '',
-               liked: ''
+               liked: 0,
+               disable: false
             }
         },
          mounted () {
             axios.get(`/api/comments/${this.$store.state.comment.postID.id}`).then((resp)=> this.$data.comments = resp.data.comments);
+        },
+        methods: {
+            submit() {
+                axios.post('/api/comments').then(()=> console.log('success'));
+            }
+        },
+        components: {
+            Avatar,
         },
     }
 </script>

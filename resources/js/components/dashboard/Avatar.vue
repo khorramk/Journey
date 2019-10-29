@@ -6,7 +6,7 @@
             </button> -->
             <div class="container">
                     <input class="avatar-modal__input-avatar inputfile"  type="file"  name="" v-on:change="onSelectFile">
-                    <label for="file"><img :src="this.$store.state.path" width="100" height="100" alt=""></label>
+                    <label for="file"><img :src="this.$store.state.avatar.path" width="100" height="100" alt=""></label>
             </div>
         
         <!-- </div> -->
