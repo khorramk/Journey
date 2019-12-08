@@ -3,7 +3,10 @@ import actions from '../actions';
 
 const state = {
     usersPosts : [],
-    allPosts: []
+    allPosts: [],
+    key: 0,
+    disable: false,
+    openPostsModal: false
 }
 
 export default {

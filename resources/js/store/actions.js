@@ -23,5 +23,32 @@ const actions = {
     closeSelection: (context) => {
         context.commit('hideModal');
     },
+    incrementKey: (context)=> {
+        context.commit('changeKey');
+    },
+    openCommentModal: (context, id)=> {
+        context.commit('commentModal', id);
+    },
+    closeCommentModal: (context) => {
+        context.commit('commentModalClose');
+    },
+    disableButton: (context) => {
+        context.commit('turnOfTheButton');
+    },
+    enableButton: (context)=> {
+        context.commit('turnOnTheButton');
+    },
+    AddCountry: (context)=> {
+        context.commit('loadModal');
+    },
+    store_image_file: (context, file)=> {
+        context.commit('store_image', file)
+    },
+    AddPosts: (context)=> {
+        context.commit('putPosts')
+    },
+    addWishes: (context)=> {
+        context.commit('openWishes');
+    }
 }
 export default actions;

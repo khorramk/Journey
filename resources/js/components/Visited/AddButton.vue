@@ -1,19 +1,24 @@
 <template>
-          <button @click="showFullModal" class="plus-btn text-center">
+        <button @click="showFullModal" class="plus-btn">
             +
         </button>
-
-        
 </template>
 
 <script>
     export default {
         methods: {
             showFullModal() {
-               this.$store.dispatch('showModal');
-            }
-        },
+                if(this.$route.path === '/visited'){
+                    return this.$store.dispatch('AddCountry')
+                }else if(this.$route.path === '/'){
+                    return this.$store.dispatch('AddPosts');
 
+                }else if(this.$route.path === '/wishlist'){
+                    return this.$store.dispatch('addWishes');
+                }
+
+            }
+        }
     }
 </script>
 
@@ -21,7 +26,7 @@
      @mixin plus-btn-size{
          width: 75px;
          height: 75px;
-         
+
      }
      @mixin plus-btn-pos{
          position: fixed;

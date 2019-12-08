@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<form
+  class="login-wrapper__form-login-contianer "
+>
+  <div
+    class="login-input-container"
+  >
+    <label
+      class="login-email_label label-spacing"
+      for="email"
+    >
+      Email
+    </label>
+     
+    <input
+      autocomplete="email"
+      autofocus="autofocus"
+      class="login-inputs-container__login-email-input login-input shadow-md  border-4  border border-4  font-bold border-black"
+      id="email"
+      name="email"
+      placeholder="Email"
+      required="required"
+      type="email"
+      value="old email"
+    />
+     
+    <!---->
+     
+    <label
+      class="login-inputs-container label-spacing"
+      for="password"
+    >
+      Password
+    </label>
+     
+    <input
+      autocomplete="current-password"
+      class="login-input-passsword  shadow-md border-4  border border-4 login-input shadow-inside-shadow font-bold border-black"
+      id="password"
+      name="password"
+      placeholder="Password"
+      required="required"
+      type="password"
+    />
+     
+    <!---->
+  </div>
+   
+  <div
+    class="btn-submits-container relative"
+  >
+    <button
+      class="submit-redirection__btn-login btn-submit-login  "
+      type="submit"
+    >
+        
+        login
+        
+    </button>
+     
+    <a
+      class="submit-redirection__link btn-link-register"
+      href="/register"
+    >
+      Register
+    </a>
+  </div>
+</form>
+`;

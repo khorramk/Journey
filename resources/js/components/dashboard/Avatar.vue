@@ -1,13 +1,16 @@
 <template>
-    <picture class="avatar-container__avatar-picture " >
-        <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes="" width="75" height="75" srcset="" placeholder="pic" @click="openSelection">
-        <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop">
-            <button class="remove-btn" v-on:click.prevent="removeSelection">
+        <!-- <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes=""  srcset="" placeholder="pic" @click="openSelection">
+        <!-- <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop"> -->
+            <!-- <button class="remove-btn" v-on:click.prevent="removeSelection">
                ( X )
-            </button>
-            <input class="avatar-modal__input-avatar base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
-        </div>
-    </picture>
+            </button> -->
+            <div class="container">
+                    <input class="avatar-modal__input-avatar inputfile"  type="file"  name="" v-on:change="onSelectFile">
+                    <label for="file"><img :src="this.$store.state.avatar.path" width="100" height="100" alt=""></label>
+            </div>
+        
+        <!-- </div> -->
+
 </template>
 <script>
     export default {
@@ -60,7 +63,7 @@
     }
     @mixin avatar-pos{
         left: 0;
-        top: 0;
+        bottom: 0;
         position: absolute;
     }
     @mixin avatar-vis{
@@ -91,6 +94,32 @@
     }
     .remove-btn{
         @include remove-btn_pos();
+    }
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+        .inputfile + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: black;
+        display: inline-block;
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+    }
+
+    .inputfile:focus + label,
+    .inputfile + label:hover {
+        background-color: red;
+    }
+    .inputfile + label {
+        cursor: pointer; /* "hand" cursor */
     }
 </style>
 

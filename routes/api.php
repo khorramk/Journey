@@ -25,8 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResources([
 
     'comments' => 'api\SocialBlock\CommentsController',
-    'visited' => 'api\Countries\VisitedController',
-    'wishList' => 'api\Countries\WishListController',
+    
+    
   //  'avatars' => 'api\SocialBlock\AvatarController',
     'likes' => 'api\SocialBlock\LikesController',
     'reply' => 'API\SocialBlock\ReplyController'

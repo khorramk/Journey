@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div
+  class="modal bg-blue-300 relative"
+>
+  <button
+    class="cross-btn"
+  >
+    
+        ( X )
+    
+  </button>
+   
+  <form>
+    <textarea
+      class="text-body"
+      cols="30"
+      id=""
+      name=""
+      placeholder="share your experience"
+      rows="10"
+    />
+     
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

@@ -22,7 +22,7 @@ class PostsController extends Controller
     {
         //search the user logged in and passs pthe related posts
         $allPosts = Posts::all();
-        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts];
+        return ['users-posts'=> Auth::user()->posts, 'allPosts' => $allPosts,];
         // if(session()->get('_token')-?){
 
         // }
@@ -39,8 +39,11 @@ class PostsController extends Controller
         //
         $post = new Posts;
         $post->posts = $request->input('text');
-        $post->user_id = Auth::id(); 
+        $post->user_id = Auth::id();
+        $post->likes_id = 0;
         $post->save();
+
+
 
     }
 

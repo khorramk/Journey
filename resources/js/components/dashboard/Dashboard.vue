@@ -1,14 +1,18 @@
 <template>
-    <div class="dashboard-container bg-wood">
+    <div class="dashboard-container">
+      
         <Nav />
-        <div class="user-info-container dashboard relative" v-if="this.$store.state.Modal.open === false">
+        <div class="user-info-container bg-wood" v-if="$store.state.comment.Modal === false && $store.state.Posts.openPostsModal === false">
             <!-- <Avatar/> -->
-            
-            <Posts :posts="this.$store.state.Posts.allPosts"/>
-        
+            <div v-for="(post, i) in $store.state.Posts.allPosts" :key="i">
+                 <Posts  :post="post"/>
+            </div>
+
             <AddButton/>
         </div>
-        <Modal v-if="this.$store.state.Modal.open === true &&  this.$store.state.closeButton.close === false"/>
+          <!-- <Avatar/> -->
+        <CommentModal v-if="$store.state.comment.Modal === true"/>
+        <PostsModal v-if="$store.state.Posts.openPostsModal === true && $store.state.closeButton.close === false"/>
     </div>
 </template>
 
@@ -17,7 +21,8 @@ import Posts from '../Posts/Posts';
 import Avatar from '../dashboard/Avatar';
 import Nav from '../Nav';
 import AddButton from '../Visited/AddButton';
-import Modal from '../Modal';
+import PostsModal from '../PostsModal';
+import CommentModal from '../CommentsBlock/CommentModal';
     export default {
         methods: {
             logout() {
@@ -29,14 +34,22 @@ import Modal from '../Modal';
             Avatar,
             Nav,
             AddButton,
-            Modal
+            PostsModal,
+            CommentModal,
         },
         mounted () {
              axios.get('/api/posts').then((resp) => {
                 console.log(resp.data);
                 this.$store.dispatch('getUserPosts', resp.data.loadUsersPosts);
                 this.$store.dispatch('getAllPosts', resp.data.allPosts);
+                this.$store.dispatch('enableButton');
                 });
+        },
+        data() {
+            return {
+                likes: 0,
+                disable: ''
+            }
         },
 
     }
@@ -48,11 +61,10 @@ import Modal from '../Modal';
     }
     @mixin dashboard-vis{
         background: rgb(66, 51, 51);
-    
+
     }
-    .dashboard{
-        @include dashboard-size();
-        @include dashboard-vis();
+    .bg-wood{
+        background-color: #6F6868;
     }
 </style>
 

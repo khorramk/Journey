@@ -1,11 +1,13 @@
 <template>
-    <div class="modal bg-blue-300 relative">
-        <button class="cross-btn">
-            ( X )
+    <div class="bg-secondary w-100 h-100 row">
+         
+        <form class="form-group w-100 h-100" @submit.prevent="submit">
+           
+            <textarea class="form-control " name="" v-model="text" id="" cols="" rows="" placeholder="share your experience"></textarea>
+           <button class="btn btn-danger m-5 w-25">
+          close
         </button>
-        <form @submit.prevent="submit">
-            <textarea class="text-body" name="" v-model="text" id="" cols="30" rows="10" placeholder="share your experience"></textarea>
-            <button type="submit">Submit</button>
+            <button class="btn btn-success m-5 w-25" type="submit">Submit</button>
         </form>
     </div>
 </template>
@@ -41,6 +43,7 @@ import CloseButton from './CloseButton';
     .modal{
         @include modal_size();
         @include modal_vis();
+        position: relative;
     }
     @mixin cross-btn_size{
         font-size: 25px;
@@ -63,9 +66,14 @@ import CloseButton from './CloseButton';
         width: calc(100% - 25px);
         height: calc(100% - 50px);
         margin-top: 30px;
-        
+
     }
     .text-body{
         @include text-body_size();
+    }
+    textarea {
+        width: calc(100vw - 30px);
+        height: calc(100vh - 400px);
+        margin: 20px;
     }
 </style>

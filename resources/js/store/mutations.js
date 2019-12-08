@@ -1,3 +1,4 @@
+import { stat } from "fs";
 
 const mutations = {
      openModal: (state)=> {
@@ -29,8 +30,32 @@ const mutations = {
      },
      hideModal: (state) => {
          state.pop = false;
+     },
+     changeKey: (state) => {
+         state.key += 1;
+     },
+     commentModal: (state, id)=> {
+         state.postID= id;
+         state.Modal = true;
+     },
+     commentModalClose: (state)=> {
+         state.Modal = false;
+     },
+     turnOfTheButton: (state)=> {
+         state.disable = true;
+     },
+     turnOnTheButton: (state)=> {
+         state.disable = false;
+     },
+     loadModal: (state)=>{
+         state.openCountryModal = true;
+     },
+     putPosts: (state)=> {
+         state.openPostsModal = true;
+     },
+     openWishes: (state)=> {
+         state.open = true;
      }
-
 
 }
 

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API\COUNTRIES;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Wish;
+use Auth;
 class WishListController extends Controller
 {
     /**
@@ -15,6 +16,8 @@ class WishListController extends Controller
     public function index()
     {
         //
+        $wishes = Wish::where('users_id', Auth::id())->get();
+        return ['wishes'=> $wishes];
     }
 
     /**
@@ -26,6 +29,11 @@ class WishListController extends Controller
     public function store(Request $request)
     {
         //
+        $wish = new Wish;
+        $wish->country_name = $request->input('value');
+        $wish-> users_id = Auth::id();
+        $wish->save();
+        
     }
 
     /**
