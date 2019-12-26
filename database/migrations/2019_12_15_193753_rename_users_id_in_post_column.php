@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ModifyVisitedsColoumn extends Migration
+class RenameUsersIdInPostColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class ModifyVisitedsColoumn extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('visiteds', function (Blueprint $table) {
-            $table->string('images', 255)->change();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->renameColumn('users_id', 'user_id');
         });
     }
 
@@ -26,6 +25,8 @@ class ModifyVisitedsColoumn extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('post', function (Blueprint $table) {
+            $table->renameColumn('user_id', 'users_id');
+        });
     }
 }

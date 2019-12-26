@@ -49,6 +49,4 @@ Route::get('/{any}', function(){
     return view('dashboard');
 })->where('any', '.*');
 
-    #cod
-
-
+    

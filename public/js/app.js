@@ -2660,11 +2660,11 @@ var _default = {
       this.file = event.target.files[0];
       console.log(this.file);
       axios.post('/api/avatars', formData).then(function (resp) {
-        var path = "./storage/".concat(resp.data);
-        _this.$store.dispatch('showImage', path), _this.$data.closeUponSelectImage = false, _this.$data.pop = false;
-      })["catch"](function (err) {
+        return _this.$data.imageData = "./storage/".concat(resp.data);
+      }, this.$data.gone = false, this.$data.pop = false) //this.$data.imageData = '/public/storage/avatar1')
+      ["catch"](function (err) {
         return console.log(err);
-      });
+      }); //this.$data.imageData = /asset/image/url);
     },
     openSelection: function openSelection() {
       console.log(this.$store.state.avatar);
@@ -58997,8 +58997,8 @@ exports["default"] = _default;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\khorram.khondkar\code\journey\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\khorram khondkar\code\Journey\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
