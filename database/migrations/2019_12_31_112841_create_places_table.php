@@ -15,6 +15,9 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('place')->nullable($value = true);
+            $table->string('type')->nullable($value = true);
+            $table->longText('path_of_image')->nullable($value = true);
             $table->timestamps();
         });
     }
