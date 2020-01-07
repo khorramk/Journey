@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlacesTable extends Migration
+class Distance extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +13,11 @@ class CreatePlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('places', function (Blueprint $table) {
+        Schema::create('distance', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('place')->nullable($value = true);
-            $table->string('type')->nullable($value = true);
-            $table->longText('path_of_image')->nullable($value = true);
+            $table->float('local/miles');
+            $table->float('international/km');
+            $table->float('destination/miles');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreatePlacesTable extends Migration
      */
     public function down()
     {
-        DB::table('places')->delete;
+        Schema::dropIfExists('distance');
     }
 }
