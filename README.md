@@ -1,6 +1,8 @@
 # Journey
     a adventourous travel review social media app for users to minimise obstacles in their travel life.
 
+## under construction
+[figma designs](https://www.figma.com/file/378uw6bqTHjupupi1LgHym/mood-board-of-journey?node-id=0%3A1);
 ## in this docs:
     1. whats in this repo?
     2. guides of local installation
