@@ -66,4 +66,4 @@
 
 ## Licence
 
-    Journey is MIT licenced, as found in the [Licence](https://github.com/khorramk/Journey/blob/master/LICENSE) file.
+Journey is MIT licenced, as found in the [Licence](https://github.com/khorramk/Journey/blob/master/LICENSE) file.
