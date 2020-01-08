@@ -8,6 +8,9 @@ const actions = {
     getAllPosts: (context, posts)=> {
         context.commit('loadPosts', posts);
     },
+    closeModal: (context) => {
+        context.commit('closeSwitchedOn');
+    },
     showModal: (context) => {
         context.commit('openModal');
     },
@@ -15,6 +18,7 @@ const actions = {
         context.commit('showClosebtn');
     },
     closeModal: (context) => {
+<<<<<<< HEAD
         context.commit('removeModal');
     },
     openAvatar: (context) =>{
@@ -49,6 +53,9 @@ const actions = {
     },
     addWishes: (context)=> {
         context.commit('openWishes');
+=======
+        context.commit('close');
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
     }
 }
 export default actions;

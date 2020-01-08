@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
         <!-- <img  class="avatar-container__avatar-img avatar" :src="this.$store.state.avatar.path" alt="picture" sizes=""  srcset="" placeholder="pic" @click="openSelection">
         <!-- <div class="modal avatar-container__avatar-modal avatar-modal relative" v-if="$store.state.avatar.pop"> -->
             <!-- <button class="remove-btn" v-on:click.prevent="removeSelection">
@@ -11,15 +12,40 @@
         
         <!-- </div> -->
 
+=======
+    <div>
+        <!-- <div class="base-image-input" v-bind:style="{ backgroundImage: `url(${imageData})`, width: '80px', height: '90px'}" >
+            <span v-if="gone">
+                choose image
+            </span> -->
+            <picture>
+                <span v-show="gone">
+                    choose image
+                </span>
+                <img :src="imageData" alt="avatar" sizes="" width="75" height="75" srcset="" @click="openModal">
+                <div class="modal" v-if="pop" :style="{width: '400px', height: '300px'}">
+                    <input class="base-image-input"  type="file"  name="" id="upload" v-on:change="onSelectFile">
+                </div>
+            </picture>
+                
+           
+        <!-- </div> -->
+    </div>
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
 </template>
 <script>
     export default {
         data() {
             return {
                file: '',
+<<<<<<< HEAD
                imageData: '',
                closeUponSelectImage: true,
                switch: false
+=======
+               gone: true,
+               pop: false
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
             }
         },
         methods: {
@@ -37,21 +63,15 @@
                     .catch((err) => console.log(err));//this.$data.imageData = /asset/image/url);
 
             },
-            openSelection(){
-                console.log(this.$store.state.avatar);
-                this.$store.dispatch('openAvatar');
-                this.$data.switch = true;
-            },
-            removeSelection(){
-                console.log('test');
-                this.$store.dispatch('closeSelection');
-               
+            openModal(){
+                this.$data.pop= true;
             }
         },
 
     }
 
 </script>
+<<<<<<< HEAD
 <style lang="scss" scoped>
     @mixin avatar-size {
         width: 75px;
@@ -119,4 +139,6 @@
         cursor: pointer; /* "hand" cursor */
     }
 </style>
+=======
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
 

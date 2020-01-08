@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="dashboard-container">
       
         <Nav />
@@ -13,6 +14,17 @@
           <!-- <Avatar/> -->
         <CommentModal v-if="$store.state.comment.Modal === true"/>
         <PostsModal v-if="$store.state.Posts.openPostsModal === true && $store.state.closeButton.close === false"/>
+=======
+    <div class="dashboard-container h-screen bg-wood">
+        <Nav />
+        <div class="user-info-container bg-wood h-full-viewport" v-if="this.$store.state.Modal.open === false">
+            <Avatar/>
+            <h1>this is dashboard</h1>
+            <Posts :posts="this.$store.state.Posts.allPosts"/>
+            <AddButton/>
+        </div>
+        <Modal v-if="this.$store.state.Modal.open && this.$store.state.Modal.close === false"/>
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
     </div>
 </template>
 
@@ -54,6 +66,7 @@ import CommentModal from '../CommentsBlock/CommentModal';
 
     }
 </script>
+<<<<<<< HEAD
 <style lang="scss" scoped>
     @mixin dashboard-size{
         height: 100%;
@@ -67,4 +80,6 @@ import CommentModal from '../CommentsBlock/CommentModal';
         background-color: #6F6868;
     }
 </style>
+=======
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
 

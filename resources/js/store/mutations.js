@@ -16,11 +16,15 @@ const mutations = {
      closeSwitchedOn: (state)=> {
          state.close = false;
      },
+     openModal: (state)=> {
+         state.open = true;
+     },
      showClosebtn: (state)=> {
          state.add = false;
      },
      close: (state)=> {
          state.close = false;
+<<<<<<< HEAD
      },
      removeModal: (state)=> {
          state.close = true;
@@ -55,6 +59,8 @@ const mutations = {
      },
      openWishes: (state)=> {
          state.open = true;
+=======
+>>>>>>> parent of 0c12f6d... fixed add btn layout and  visual design and fixed modal for avatar
      }
 
 }

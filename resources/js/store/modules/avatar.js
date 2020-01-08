@@ -2,8 +2,7 @@ import actions from '../actions';
 import mutations from '../mutations';
 const state = {
     path: '',
-    open: false,
-    pop: false
+    open: false
 };
 export default {
     state,
